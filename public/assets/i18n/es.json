@@ -1,0 +1,21 @@
+{
+  "HELLO": "Hola",
+  "WELCOME": "Bienvenido",
+  "WELCOMEDESCRIPTION" : "Soy Alejandro, desarrollador web de 28 años con una gran pasión por la tecnología y la ciencia. Actualmente curso la Licenciatura en Ciencias de la Computación en la Universidad Nacional de Rosario, lo cual me permite profundizar en los fundamentos teóricos y prácticos de la programación.",
+  "MENUTITLE": "Proyectos",
+  "MAINTITLE": "Inicio",
+  "LANGUAGE_ENGLISH": "Idioma Inglés",
+  "DARK_THEME": "Modo oscuro",
+  "ACTIVITY_DELEGATOR_TITLE": "Activity Delegator",
+  "ACTIVITY_DELEGATOR_DESC": "La aplicación Activity Delegator permite a los usuarios asignar de manera aleatoria actividades a un grupo de participantes, optimizando la distribución equitativa de tareas. Este sistema garantiza que no se repitan los mismos participantes para las mismas actividades durante al menos tres días, siempre y cuando la cantidad de actividades y participantes lo permita.",
+  "ECOMMERCE_DESC":"Esta aplicación de e-commerce en Angular ofrece una experiencia de compra moderna y optimizada, aprovechando la potencia del framework para crear un front-end armonioso y fluido. Destaca entre otros e-commerce por su panel de administración avanzado, que integra análisis de datos y ventas en tiempo real. Los usuarios podrán gestionar productos, pedidos y clientes de manera intuitiva, mientras que las herramientas de análisis permiten visualizar tendencias y tomar decisiones informadas para maximizar las ventas y mejorar la experiencia del usuario.",
+  "ECOMMERCE_CLIENT_DESC": "Para el cliente de este e-commerce, se usa Angular versión 18 para aprovechar las últimas funcionalidades del framework. La aplicación utiliza nuevas directivas declarativas @if, @for y @switch, que simplifican la lógica de las plantillas. También se emplea el método inject y se optimiza la estructura mediante pipes, lo que permite mantener el código modular y claro. La separación de responsabilidades se logra mediante servicios, con vistas y componentes bien organizados para ofrecer una experiencia de usuario coherente y escalable",
+  "ECOMMERCE_SERVER_DESC": "Este proyecto es una API de servidor para una plataforma de eCommerce, desarrollada en Node.js utilizando el framework Express.js y estructurada bajo el patrón Modelo-Vista-Controlador (MVC). La API proporciona funcionalidades completas para manejar productos, usuarios, carritos de compras y pedidos, optimizada para ser la base de aplicaciones de comercio electrónico.",
+  "BACK_BTN": "Volver al Inicio",
+  "COPYRIGHT": "Todos los derechos reservados",
+  "LINKS": "Enlaces",
+  "TEST_APP": "Ir a la App",
+  "GO_REPOSITORY": "Ir al Repositorio",
+  "TECHNOLOGIES": "Tecnologías usadas"
+
+}

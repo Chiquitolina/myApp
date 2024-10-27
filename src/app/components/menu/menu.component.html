@@ -1,0 +1,62 @@
+<div
+  class="container d-flex flex-column w-100 h-100 justify-content-start align-items-start"
+>
+  <h3>{{ "MENUTITLE" | translate }}</h3>
+  <div class="d-flex flex-column">
+    @for (project of projects; track project; let i = $index) {
+    <div class="">
+      <div class="d-flex align-items-center">
+        <button
+          [ngClass]="currentThemeClass"
+          class="bg-transparent border-0"
+          [name]="project.name"
+          (click)="selectProject(project, i); handleMenuButtonClick()"
+        >
+          <i class="hover">{{ project.name }}</i>
+        </button>
+        @if (project.clientSide && project.serverSide) {
+        <div class="d-flex align-items-center">
+          @if (!showDetails) {
+          <mat-icon class="hover" (click)="toggleDetails(i)">
+            {{
+              visibleDetailIndex === i
+                ? "keyboard_arrow_up"
+                : "keyboard_arrow_down"
+            }}
+          </mat-icon>
+          }
+        </div>
+        }
+      </div>
+      @if (project.clientSide && project.serverSide) {
+      <div
+        class="d-flex flex-column w-100 details"
+        style="font-size: 14px"
+        [ngClass]="{ visible: this.visibleDetailIndex === i }"
+      >
+        <button
+          (click)="
+            selectProject(project, i);
+            handleMenuButtonClick();
+            selectSide(project.clientSide)
+          "
+          class="bg-transparent border-0 text-start w-50 hover"
+        >
+          <i><b>clientSide</b></i>
+        </button>
+        <button
+          (click)="
+            selectProject(project, i);
+            handleMenuButtonClick();
+            selectSide(project.serverSide)
+          "
+          class="bg-transparent border-0 text-start w-50 hover"
+        >
+          <i><b>serverSide</b></i>
+        </button>
+      </div>
+      }
+    </div>
+    }
+  </div>
+</div>

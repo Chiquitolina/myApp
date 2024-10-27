@@ -1,0 +1,20 @@
+{
+  "HELLO": "Hello",
+  "WELCOME": "Welcome",
+  "WELCOMEDESCRIPTION": "I am Alejandro, a 28-year-old web developer with a great passion for technology and science. I am currently studying a Bachelor's Degree in Computer Science at the National University of Rosario, which allows me to delve deeper into the theoretical and practical programming fundamentals.",
+  "MENUTITLE": "Projects",
+  "MAINTITLE": "Main",
+  "LANGUAGE_ENGLISH": "English Lang",
+  "DARK_THEME": "Dark Theme",
+  "ACTIVITY_DELEGATOR_TITLE": "Activity Delegator",
+  "ACTIVITY_DELEGATOR_DESC": "The Activity Delegator app allows users to randomly assign activities to a group of participants, optimizing the equal distribution of tasks. This system ensures that the same participants are not repeated for the same activities for at least three days, as long as the number of activities and participants allows it.",
+  "ECOMMERCE_DESC": "This Angular e-commerce application offers a modern, optimized shopping experience, leveraging the framework's power to create a harmonious and fluid front-end. It stands out from other e-commerce platforms due to its advanced admin panel, integrating real-time data and sales analysis. Users can intuitively manage products, orders, and customers, while analytical tools provide insights into trends, enabling informed decisions to maximize sales and enhance the user experience.",
+  "ECOMMERCE_CLIENT_DESC": "For the client side of this e-commerce, Angular version 18 is used to leverage the latest framework features. The application takes advantage of new declarative directives @if, @for, and @switch, simplifying template logic. The inject method is also employed, and the structure is optimized through pipes, allowing the code to remain modular and clear. Responsibility is separated through services, with well-organized views and components to provide a coherent and scalable user experience.",
+  "ECOMMERCE_SERVER_DESC": "This project is a server API for an eCommerce platform, developed in Node.js using the Express.js framework and structured under the Model-View-Controller (MVC) pattern. The API provides full functionality for managing products, users, shopping carts, and orders, optimized to serve as the foundation for eCommerce applications.",
+  "BACK_BTN": "Back to Main",
+  "COPYRIGHT": "Copyright",
+  "LINKS": "Links",
+  "TEST_APP": "Test App",
+  "GO_REPOSITORY": "View Repository",
+  "TECHNOLOGIES": "Technologies"
+}

@@ -1,0 +1,25 @@
+<div class="d-flex">
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <div class="w-75 d-flex justify-content-between align-items-center">
+      <h3 class="w-75">{{ this.project.name }}</h3>
+      <a href="">{{ "TEST_APP" | translate }}</a>
+    </div>
+    <p class="w-75">
+      {{ project.description | translate }}
+    </p>
+    @if (project.technologies) {
+    <div
+      class="w-75 d-flex flex-wrap justify-content-around tech-container align-items-center"
+    >
+      <span>{{"TECHNOLOGIES" | translate}}:</span>
+      @for (item of project.technologies; track item) {
+      <p-chip image="{{ item.image }}" alt="{{ item.name }}" class="mt-1">
+        <i class="m-1">
+          {{ item.name }}
+        </i>
+      </p-chip>
+      }
+    </div>
+    }
+  </div>
+</div>

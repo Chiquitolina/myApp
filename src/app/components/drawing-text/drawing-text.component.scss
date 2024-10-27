@@ -1,0 +1,21 @@
+.drawing-text-container {
+  svg {
+    width: 100%;
+
+    text {
+      fill: none; // Sin relleno, solo borde
+      stroke-width: 1px; // Grosor del contorno
+      stroke-dasharray: 1000; // Largo total del contorno
+      stroke-dashoffset: 1000; // Comienza con todo el contorno oculto
+      animation: drawText 12s ease forwards; // Duración de la animación
+      font-size: 5rem;
+      font-family: "Arial", sans-serif;
+    }
+  }
+}
+
+@keyframes drawText {
+  to {
+    stroke-dashoffset: 0; // Dibuja el contorno reduciendo el offset
+  }
+}

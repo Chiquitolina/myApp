@@ -1,0 +1,15 @@
+mat-icon {
+    cursor: pointer;
+}
+
+.details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .details.visible {
+    max-height: 200px; /* Ajusta según el contenido */
+    opacity: 1;
+  }
