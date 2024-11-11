@@ -20,12 +20,16 @@ export class ProjectsService {
 
       clientSide: {
         projectName: 'E-Commerce',
-        side: 'Client',
+        side: 'Frontend',
         description: 'ECOMMERCE_CLIENT_DESC',
         technologies: [
           {
             name: 'angular',
             image: 'https://seeklogo.com/images/A/angular-icon-logo-5FC0C40EAC-seeklogo.com.png',
+          },
+          {
+            name: 'material-design',
+            image: 'https://www.evernote.design/assets/images/material-design-system.jpg',
           },
           {
             name: 'angular-material',
@@ -55,7 +59,7 @@ export class ProjectsService {
       },
       serverSide: {
         projectName: 'E-Commerce',
-        side: 'Server',
+        side: 'Backend',
         description: 'ECOMMERCE_SERVER_DESC',
         technologies: [
           {
@@ -83,7 +87,11 @@ export class ProjectsService {
       technologies: [
         {
           name: 'angular',
-          image: 'https://icon2.cleanpng.com/20180420/gjw/avu8ll8d8.webp',
+          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbOFmjGchTMwQriXqezOovYKqXWK3YXUnFlQ&s',
+        },
+        {
+          name: 'material-design',
+          image: 'https://www.evernote.design/assets/images/material-design-system.jpg',
         },
         {
           name: 'angular-material',
@@ -113,24 +121,50 @@ export class ProjectsService {
     },
     {
       id: 4,
-      name: 'Trading-Bot',
+      name: 'aig1996',
       description:
-        'Description of Project 3. Si esta lokura nos hizo comprender, que la alegría no supo consolar, deja que lloren tus ojosk coraz+onnnnnnnnnnnnnnnnn.',
+        'aig1996 es una aplicación de portafolio desarrollada en Angular 18, creada para profundizar en mi framework de frontend preferido. Además de presentar mis proyectos y experiencia, esta app destaca mis habilidades técnicas mediante características como la traducción multilenguaje con ngx-translate, un sistema de temas claro y oscuro configurable mediante un toggle, y un manejo eficiente de los estados a través de observables, garantizando una interfaz fluida y reactiva.',
       link: 'link',
       image: '',
       showDetails: false,
-      clientSide: {
-        projectName: 'E-Commerce',
-        side: 'Client',
-        description: 'ECOMMERCE_CLIENT_DESC',
-        technologies: [],
-      },
-      serverSide: {
-        projectName: 'E-Commerce',
-        side: 'Server',
-        description: 'ECOMMERCE_SERVER_DESC',
-        technologies: [],
-      },
+      technologies: [
+        {
+          name: 'angular',
+          image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbOFmjGchTMwQriXqezOovYKqXWK3YXUnFlQ&s',
+        },
+        {
+          name: 'rxjs-observables',
+          image: 'https://w7.pngwing.com/pngs/650/439/png-transparent-rxjs-hd-logo.png',
+        },
+        {
+          name: 'material-design',
+          image: 'https://www.evernote.design/assets/images/material-design-system.jpg',
+        },
+        {
+          name: 'angular-material',
+          image: 'https://image.pngaaa.com/160/4144160-middle.png',
+        },
+        {
+          name: 'prime-ng',
+          image: 'https://external-preview.redd.it/4JkXZgPF9IW3_LUNCxSGPRE388KpNXIGgS6r6uFS1EY.jpg?auto=webp&s=b369ca8a19c5570e9a11e6455a71e0b83a6bf54a',
+        },
+        {
+          name: 'bootstrap',
+          image: 'https://e7.pngegg.com/pngimages/439/345/png-clipart-bootstrap-logo-thumbnail-tech-companies.png',
+        },
+        {
+          name: 'html',
+          image: 'https://cdn.iconscout.com/icon/free/png-256/free-html-5-1-1175208.png?f=webp&w=256',
+        },
+        {
+          name: 'sass',
+          image: 'https://sass-lang.com/assets/img/styleguide/seal-color.png',
+        },
+        {
+          name: 'typescript',
+          image: 'https://typescript-eslint.io/assets/files/logo-62ab572de114d03f1ec685d989f92cd6.svg',
+        },
+      ],
     },
   ];
 
@@ -140,7 +174,7 @@ export class ProjectsService {
   public selectedProject = new BehaviorSubject<Project | null>(null);
   selectedProject$ = this.selectedProject.asObservable();
 
-  public selectedSide = new BehaviorSubject<sideProject | null | null>(null);
+  public selectedSide = new BehaviorSubject<sideProject | null>(null);
   selectedSide$ = this.selectedSide.asObservable();
 
   // Método para seleccionar un proyecto

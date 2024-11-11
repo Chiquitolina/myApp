@@ -1,5 +1,5 @@
 <div class="w-100 d-flex justify-content-between p-5">
-  @if (!this._projectServ.showProjectDetails) {
+  @if (!this._projectServ.showProjectDetails && this._projectServ.selectedSide !== null) {
   <h2>
     <b>{{ "MAINTITLE" | translate }}</b>
   </h2>

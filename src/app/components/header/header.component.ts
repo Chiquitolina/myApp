@@ -49,6 +49,7 @@ export class HeaderComponent {
 
   goBack() {
     this._projectServ.showProjectDetails = false;
+    this._projectServ.selectedSide.next(null)
   }
 
   onMenuButtonClick() {

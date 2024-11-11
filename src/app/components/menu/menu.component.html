@@ -1,18 +1,18 @@
 <div
-  class="container d-flex flex-column w-100 h-100 justify-content-start align-items-start"
+  class="container d-flex flex-column w-100 h-100 justify-content-xl-start justify-content-lg-start justify-content-md-start align-items-lg-start align-items-xl-start align-items-md-start"
 >
-  <h3>{{ "MENUTITLE" | translate }}</h3>
-  <div class="d-flex flex-column">
+  <h2>{{ "MENUTITLE" | translate }}</h2>
+  <div class="d-flex flex-column align-items-xl-start align-items-sm-center align-items-center align-items-xl-start">
     @for (project of projects; track project; let i = $index) {
     <div class="">
-      <div class="d-flex align-items-center">
+      <div class="d-flex">
         <button
           [ngClass]="currentThemeClass"
           class="bg-transparent border-0"
           [name]="project.name"
           (click)="selectProject(project, i); handleMenuButtonClick()"
         >
-          <i class="hover">{{ project.name }}</i>
+          <i class="hover proj-titles">{{ project.name }}</i>
         </button>
         @if (project.clientSide && project.serverSide) {
         <div class="d-flex align-items-center">
@@ -42,7 +42,7 @@
           "
           class="bg-transparent border-0 text-start w-50 hover"
         >
-          <i><b>clientSide</b></i>
+          <i>Frontend</i>
         </button>
         <button
           (click)="
@@ -52,7 +52,7 @@
           "
           class="bg-transparent border-0 text-start w-50 hover"
         >
-          <i><b>serverSide</b></i>
+          <i>Backend</i>
         </button>
       </div>
       }

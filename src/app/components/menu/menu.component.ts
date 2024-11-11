@@ -24,7 +24,8 @@ import { sideProject } from '../../interfaces/sideProject';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MenuComponent {
-  @Output() notifyApp = new EventEmitter<void>(); // Define un EventEmitter para emitir eventos al componente padre
+  @Output() notifyApp = new EventEmitter<void>();
+
   projects: Project[] = [];
   currentThemeClass: string = '';
 
@@ -55,7 +56,7 @@ export class MenuComponent {
     this.projectServ.selectProject(project);
     this.projectServ.showProjectDetails = true;
     if (this.visibleDetailIndex != index) {
-    this.visibleDetailIndex = null;
+      this.visibleDetailIndex = null;
     }
   }
 

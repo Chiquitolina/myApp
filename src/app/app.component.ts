@@ -25,6 +25,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { SideProjectComponent } from './views/side-project/side-project.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -43,7 +44,8 @@ import { SideProjectComponent } from './views/side-project/side-project.componen
     MenuComponent,
     MatSidenavModule,
     MatIconModule,
-    SideProjectComponent
+    SideProjectComponent,
+    SidebarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -123,7 +125,6 @@ export class AppComponent {
   }
 
   handleNotification() {
-    console.log('Received event from HomeView or ProjectView');
     this.flipCard();
   }
 

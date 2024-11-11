@@ -16,8 +16,9 @@
   color: #ffffff; /* Color de texto para el tema oscuro */
 
   mat-drawer {
-    background-color: black;
+    background-color: rgba(33, 37, 41, 0.95);
     border: 2px solid #c4c4c4;
+    color: #ffffff; /* Color de texto para el tema oscuro */
   }
   .hover:hover {
     color: black;
@@ -54,8 +55,9 @@
   color: #000000; /* Color de texto para el tema claro */
 
   mat-drawer {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
     border: 2px solid #c4c4c4;
+    color: #000000; /* Color de texto para el tema claro */
   }
 
   .hover:hover {
@@ -111,6 +113,20 @@ body {
 html,
 body {
   height: 100%;
+}
+
+*::-webkit-scrollbar {
+  width: 0.25rem;
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 1rem 1rem 1rem 1rem;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: grey;
 }
 
 @keyframes themeSwitchLight {
