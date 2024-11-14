@@ -1,5 +1,7 @@
 <mat-drawer #drawer mode="side" class="w-100 h-75">
-  <app-sidebar (notifyApp)="handleNotification(); drawer.toggle()"></app-sidebar>
+  <app-sidebar
+    (notifyApp)="handleNotification(); drawer.toggle()"
+  ></app-sidebar>
 </mat-drawer>
 <mat-drawer-container
   class="h-100 bg-transparent"

@@ -1,0 +1,14 @@
+<div
+  class="w-100 d-flex flex-wrap justify-content-around tech-container align-items-center"
+>
+  <div class="d-flex w-100 justify-content-center">
+    <span class="">{{ "TECHNOLOGIES" | translate }}:</span>
+  </div>
+  @for (item of technologies; track item) {
+  <p-chip image="{{ item.image }}" alt="{{ item.name }}" class="mt-1">
+    <i class="m-1">
+      {{ item.name }}
+    </i>
+  </p-chip>
+  }
+</div>

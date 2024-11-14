@@ -5,12 +5,11 @@ import { Observable } from 'rxjs';
 import { Project } from '../../interfaces/projects';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
-import { ChipModule } from 'primeng/chip';
-
+import { TechnologiesComponent } from '../../components/technologies/technologies.component';
 @Component({
   selector: 'app-project-view',
   standalone: true,
-  imports: [MenuComponent, TranslateModule, CommonModule, ChipModule],
+  imports: [MenuComponent, TranslateModule, CommonModule, TechnologiesComponent],
   templateUrl: './project-view.component.html',
   styleUrl: './project-view.component.scss'
 })

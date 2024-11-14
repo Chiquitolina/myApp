@@ -3,13 +3,13 @@ import { ProjectsService } from '../../services/projects/projects.service';
 import { Observable } from 'rxjs';
 import { sideProject } from '../../interfaces/sideProject';
 import { TranslateModule } from '@ngx-translate/core';
-import { ChipModule } from 'primeng/chip';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { TechnologiesComponent } from '../../components/technologies/technologies.component';
 
 @Component({
   selector: 'app-side-project',
   standalone: true,
-  imports: [TranslateModule, ChipModule, MatFormFieldModule],
+  imports: [TranslateModule, MatFormFieldModule, TechnologiesComponent],
   templateUrl: './side-project.component.html',
   styleUrl: './side-project.component.scss'
 })

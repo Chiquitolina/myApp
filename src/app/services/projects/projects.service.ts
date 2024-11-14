@@ -22,6 +22,7 @@ export class ProjectsService {
         projectName: 'E-Commerce',
         side: 'Frontend',
         description: 'ECOMMERCE_CLIENT_DESC',
+        linkRepository: 'https://github.com/Chiquitolina/eCommerceClientv',
         technologies: [
           {
             name: 'angular',
@@ -61,6 +62,7 @@ export class ProjectsService {
         projectName: 'E-Commerce',
         side: 'Backend',
         description: 'ECOMMERCE_SERVER_DESC',
+        linkRepository: 'https://github.com/Chiquitolina/eCommerceServer',
         technologies: [
           {
             name: 'node-js',

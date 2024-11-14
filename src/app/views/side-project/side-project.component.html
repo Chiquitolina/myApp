@@ -6,24 +6,14 @@
       <h3>
         {{ this.sideProject.projectName }} <i>({{ this.sideProject.side }})</i>
       </h3>
-      <a href=""> {{ "GO_REPOSITORY" | translate }} </a>
+      <a href="{{this.sideProject.linkRepository}}" target="_blank"> {{ "GO_REPOSITORY" | translate }} </a>
     </div>
     <p class="w-75">
       {{ sideProject.description | translate }}
     </p>
-    <div
-      class="w-75 d-flex flex-wrap justify-content-around align-items-center tech-container"
-    >
-      <div class="w-100 d-flex justify-content-center">
-        <span class="">{{ "TECHNOLOGIES" | translate }}:</span>
-      </div>
-      @for (item of sideProject.technologies; track item) {
-      <p-chip image="{{ item.image }}" alt="Avatar image" class="mt-1">
-        <i class="m-1">
-          {{ item.name }}
-        </i>
-      </p-chip>
-      }
-    </div>
+    <app-technologies
+      [technologies]="this.sideProject.technologies"
+      class="w-75"
+    ></app-technologies>
   </div>
 </div>
