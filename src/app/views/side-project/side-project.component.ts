@@ -29,7 +29,6 @@ export class SideProjectComponent {
       if (project) {
         this.sideProject = project
       }
-      console.log(this.sideProject)
     });
   }
 

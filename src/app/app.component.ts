@@ -16,13 +16,13 @@ import { ProjectViewComponent } from './views/project-view/project-view.componen
 import { ProjectsService } from './services/projects/projects.service';
 import { Project } from './interfaces/projects';
 import { CommonModule } from '@angular/common';
-import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, FormControl } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ThemeService } from './services/theme/theme.service';
 import { TranslationService } from './services/translation/translation.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { MenuComponent } from './components/menu/menu.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { SideProjectComponent } from './views/side-project/side-project.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -33,7 +33,6 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     RouterOutlet,
     FocusLightComponent,
     HeaderComponent,
-    ReactiveFormsModule,
     FormsModule,
     MatSlideToggleModule,
     FooterComponent,
@@ -45,7 +44,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     MatSidenavModule,
     MatIconModule,
     SideProjectComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -60,43 +59,19 @@ export class AppComponent {
       this.currentThemeClass = isDarkMode ? 'theme-dark' : 'theme-light';
     });
 
-    // Actualiza el tema según el valor inicial del toggle
-    this.themeServ.setDarkMode(this.toggleControl.value ?? false);
-
-    // Suscripción al cambio de valor en el toggle
-    this.toggleControl.valueChanges.subscribe((darkMode) => {
-      this.themeServ.setDarkMode(darkMode ?? false);
-    });
-
     this.projectServ.getProjects().subscribe((projects) => {
       this.projects = projects;
-    });
-
-    this.translateToggleControl.valueChanges.subscribe((isEnglish: boolean | null) => {
-      // Antes de cambiar el idioma, activa la animación de fade-out
-      this.isFading = true;  // Suponiendo que tienes la propiedad isFading para manejar la animación
-    
-      // Después de un tiempo (durante la animación), cambia el idioma
-      setTimeout(() => {
-        const selectedLanguage = isEnglish ? 'en' : 'es';
-        this.translateServ.changeLanguage(selectedLanguage);
-        console.log(selectedLanguage);
-    
-        // Una vez que el idioma ha cambiado, activa la animación de fade-in
-        this.isFading = false;
-      }, 500);  // Ajusta el tiempo según la duración de tu animación (en milisegundos)
     });
   }
 
   projectServ = inject(ProjectsService);
   themeServ = inject(ThemeService);
-  translateServ = inject(TranslationService)
+  translateServ = inject(TranslationService);
 
   projects: Project[] = [];
   isFlipped = false;
-  toggleControl = new FormControl(true);
-  translateToggleControl = new FormControl(false)
   currentThemeClass = '';
+  isFading: boolean | null = null; // Cambiado a null inicialmente
 
   @HostBinding('class') className = '';
 
@@ -128,5 +103,7 @@ export class AppComponent {
     this.flipCard();
   }
 
-  isFading: boolean | null = null; // Cambiado a null inicialmente
+  onFadeStatusChange(fadeStatus: boolean) {
+    this.isFading = fadeStatus;
+  }
 }

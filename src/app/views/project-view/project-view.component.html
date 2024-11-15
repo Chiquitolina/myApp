@@ -4,7 +4,14 @@
       class="w-75 d-flex flex-wrap justify-content-between align-items-center"
     >
       <h3 class="w-75">{{ this.project.name }}</h3>
-      <a href="{{project.link}}" target="_blank">{{ "TEST_APP" | translate }}</a>
+      <div class="d-flex flex-column">
+        <a href="{{ project.link }}" target="_blank">{{
+          "TEST_APP" | translate
+        }}</a>
+        @if (!project.serverSide) {
+        <a href=""> {{ "GO_REPOSITORY" | translate }}</a>
+        }
+      </div>
     </div>
     <p class="w-75">
       {{ project.description | translate }}
