@@ -1,7 +1,6 @@
-
-<div class="w-100 d-flex justify-content-between p-5">
+<div class="w-100 d-flex flex-wrap justify-content-between p-5">
   @if (!this._projectServ.showProjectDetails && this.sideProject == null) {
-  <h2>
+  <h2 class="d-none d-xl-block d-lg-block d-md-block">
     <b>{{ "MAINTITLE" | translate }}</b>
   </h2>
   } @else {
@@ -16,25 +15,34 @@
   }
 
   <div
-  class="d-flex justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-center justify-content-sm-center w-75 mb-2"
+    class="d-flex justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-center justify-content-sm-center w-75 mb-2"
   >
-  <div class="d-flex">
-    <div
-      class="d-flex flex-column align-items-center"
-      style="margin-right: 1rem"
-    >
-      <mat-slide-toggle [formControl]="toggleControl"></mat-slide-toggle>
-      <span style="font-size: 13px">{{ "DARK_THEME" | translate }}</span>
-    </div>
-    <div class="d-flex flex-column align-items-center">
-      <mat-slide-toggle
-        [formControl]="translateToggleControl"
-      ></mat-slide-toggle>
-      <span style="font-size: 13px">
-        {{ "LANGUAGE_ENGLISH" | translate }}</span
+    <div class="d-flex">
+      <div
+        class="d-flex flex-column align-items-center"
+        style="margin-right: 1rem"
       >
+        <mat-slide-toggle [formControl]="toggleControl"></mat-slide-toggle>
+        <span style="font-size: 13px">{{ "DARK_THEME" | translate }}</span>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <mat-slide-toggle
+          [formControl]="translateToggleControl"
+        ></mat-slide-toggle>
+        <span style="font-size: 13px">
+          {{ "LANGUAGE_ENGLISH" | translate }}</span
+        >
+      </div>
     </div>
+
   </div>
-  </div>
- 
+  <button
+  style="margin-left: 0.25rem; color: #212529"
+  class="bg-light d-xl-none d-lg-none d-md-none"
+  mat-mini-fab
+  aria-label="Example icon button with a menu icon"
+  (click)="onMenuButtonClick()"
+>
+  <mat-icon>menu</mat-icon>
+</button>
 </div>
