@@ -6,6 +6,7 @@
   "MAINTITLE": "Inicio",
   "LANGUAGE_ENGLISH": "Idioma Inglés",
   "DARK_THEME": "Modo oscuro",
+  "ANGULAR_FORMS_DESC": "Trabajo de diseño y validación de formularios. Para validar los campos, empleé el servicio 𝘝𝘢𝘭𝘪𝘥𝘢𝘵𝘰𝘳𝘴, aprovechando funciones predefinidas como 𝘙𝘦𝘲𝘶𝘪𝘳𝘦𝘥 y 𝘔𝘪𝘯𝘓𝘦𝘯𝘨𝘵𝘩, además de desarrollar validadores personalizados como 𝘯𝘶𝘮𝘦𝘳𝘪𝘤𝘝𝘢𝘭𝘪𝘥𝘢𝘵𝘰𝘳, 𝘱𝘢𝘴𝘴𝘸𝘰𝘳𝘥𝘝𝘢𝘭𝘪𝘥𝘢𝘵𝘰𝘳 y 𝘮𝘪𝘴𝘮𝘢𝘵𝘤𝘩𝘗𝘢𝘴𝘴𝘸𝘰𝘳𝘥𝘝𝘢𝘭𝘪𝘥𝘢𝘵𝘰𝘳. También implementé mensajes de error claros debajo de cada campo, brindando retroalimentación en tiempo real y mejorando la experiencia del usuario.",
   "ACTIVITY_DELEGATOR_TITLE": "Activity Delegator",
   "ACTIVITY_DELEGATOR_DESC": "La aplicación Activity Delegator permite a los usuarios asignar de manera aleatoria actividades a un grupo de participantes, optimizando la distribución equitativa de tareas. Este sistema garantiza que no se repitan los mismos participantes para las mismas actividades durante al menos tres días, siempre y cuando la cantidad de actividades y participantes lo permita.",
   "ECOMMERCE_DESC":"Esta aplicación de e-commerce en Angular ofrece una experiencia de compra moderna y optimizada, aprovechando la potencia del framework para crear un front-end armonioso y fluido. Destaca entre otros e-commerce por su panel de administración avanzado, que integra análisis de datos y ventas en tiempo real. Los usuarios podrán gestionar productos, pedidos y clientes de manera intuitiva, mientras que las herramientas de análisis permiten visualizar tendencias y tomar decisiones informadas para maximizar las ventas y mejorar la experiencia del usuario.",

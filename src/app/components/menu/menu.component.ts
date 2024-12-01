@@ -9,6 +9,11 @@ import { ThemeService } from '../../services/theme/theme.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { sideProject } from '../../interfaces/sideProject';
+import {MatListModule} from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
+import { FormsModule } from '@angular/forms';  // Asegúrate de importar FormsModule
+
+
 @Component({
   selector: 'app-menu',
   standalone: true,
@@ -18,6 +23,9 @@ import { sideProject } from '../../interfaces/sideProject';
     RouterLink,
     TranslateModule,
     MatIconModule,
+    MatListModule,
+    MatDividerModule,
+    FormsModule
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
@@ -28,6 +36,7 @@ export class MenuComponent {
 
   projects: Project[] = [];
   currentThemeClass: string = '';
+  selectedProject: any = null;  // Enlazamos la selección
 
   showDetails = false; // Estado inicial: detalles ocultos
 
@@ -71,5 +80,9 @@ export class MenuComponent {
 
   toggleDetails(index: number) {
     this.visibleDetailIndex = this.visibleDetailIndex === index ? null : index;
+  }
+
+  nullearr() {
+    this.selectedProject = null;
   }
 }

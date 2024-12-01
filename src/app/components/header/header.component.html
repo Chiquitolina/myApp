@@ -7,7 +7,7 @@
   <div
     style="cursor: pointer"
     class="d-flex align-items-center back"
-    (click)="goBack(); handleMenuButtonClick()"
+    (click)="goBack(); handleMenuButtonClick(); "
   >
     <mat-icon>backspace</mat-icon>
     <i style="margin-left: 0.5rem">{{ "BACK_BTN" | translate }}</i>
@@ -17,32 +17,51 @@
   <div
     class="d-flex justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-center justify-content-sm-center w-75 mb-2"
   >
-    <div class="d-flex">
-      <div
-        class="d-flex flex-column align-items-center"
-        style="margin-right: 1rem"
-      >
-        <mat-slide-toggle [formControl]="toggleControl"></mat-slide-toggle>
-        <span style="font-size: 13px">{{ "DARK_THEME" | translate }}</span>
-      </div>
-      <div class="d-flex flex-column align-items-center">
-        <mat-slide-toggle
-          [formControl]="translateToggleControl"
-        ></mat-slide-toggle>
-        <span style="font-size: 13px">
-          {{ "LANGUAGE_ENGLISH" | translate }}</span
-        >
-      </div>
-    </div>
+    <section style="margin-right: 0.5rem">
+      <mat-button-toggle-group
+        name="favoriteColor"
+        aria-label="Favorite Color"
+        [hideSingleSelectionIndicator]="hideSingleSelectionIndicator()"
+        [formControl]="toggleControl"
+        (change)="onToggleChange($event.value)" 
 
+      >
+        <mat-button-toggle [value]="true"
+          ><i class="pi pi-sun"></i>
+          <!-- Icono de Sol -->
+        </mat-button-toggle>
+        <mat-button-toggle class=""  [value]="false"
+          ><i class="pi pi-moon"></i>
+          <!-- Icono de Luna -->
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </section>
+    <section>
+      <mat-button-toggle-group
+        [formControl]="translateToggleControl"
+        name="favoriteColor"
+        aria-label="Favorite Color"
+        [hideSingleSelectionIndicator]="hideSingleSelectionIndicator()"
+        (change)="onLanguageChange($event.value)" 
+      >
+        <mat-button-toggle [value]="true"
+          ><span>EN</span>
+          <!-- Icono de Sol -->
+        </mat-button-toggle>
+        <mat-button-toggle [value]="false" class=""
+          ><span>ES</span>
+          <!-- Icono de Luna -->
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </section>
   </div>
   <button
-  style="margin-left: 0.25rem; color: #212529"
-  class="bg-light d-xl-none d-lg-none d-md-none"
-  mat-mini-fab
-  aria-label="Example icon button with a menu icon"
-  (click)="onMenuButtonClick()"
->
-  <mat-icon>menu</mat-icon>
-</button>
+    style="margin-left: 0.25rem; color: #212529"
+    class="bg-light d-xl-none d-lg-none d-md-none"
+    mat-mini-fab
+    aria-label="Example icon button with a menu icon"
+    (click)="onMenuButtonClick()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
 </div>

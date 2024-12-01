@@ -5,6 +5,9 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 
+a {
+  text-decoration: none;
+}
 
 .theme-dark,
 .theme-light {
@@ -20,9 +23,31 @@
     border: 2px solid #c4c4c4;
     color: #ffffff; /* Color de texto para el tema oscuro */
   }
+
+  .mat-button-toggle-checked {
+    background-color: whitesmoke !important; /* Color de fondo personalizado */
+    color: black; /* Cambiar color del texto */
+  }
+
+  .download-btn {
+    border: 1px solid #ffffff;
+  }
+
+  .project-name {
+    color: white;
+  }
+
+  .mat-button-toggle-checked span {
+    color: #000000;
+  }
+
+  .mat-button-toggle-checked i {
+    color: #000000;
+  }
+
   .hover:hover {
     color: black;
-}
+  }
 
   text {
     stroke: whitesmoke; /* Color de contorno para el texto en tema claro */
@@ -60,9 +85,17 @@
     color: #000000; /* Color de texto para el tema claro */
   }
 
+  .download-btn {
+    border: 1px solid black;
+  }
+
   .hover:hover {
-    color:grey;
-}
+    color: grey;
+  }
+
+  .project-name {
+    color: #212529;
+  }
 
   text {
     stroke: black; /* Color de contorno para el texto en tema claro */
@@ -152,5 +185,3 @@ body {
     filter: brightness(1);
   }
 }
-
-

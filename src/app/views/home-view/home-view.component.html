@@ -5,7 +5,9 @@
       {{ "WELCOMEDESCRIPTION" | translate }}
     </p>
     <div class="d-flex w-75 align-items-start">
-    <a href=""> {{"DOWNLOAD_CV" | translate}} </a>
-  </div>
+      <button (click)="downloadPdf()" class="download-btn w-50 bg-transparent ">
+        {{ "DOWNLOAD_CV" | translate }}
+      </button>
+    </div>
   </div>
 </div>

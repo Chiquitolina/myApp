@@ -6,6 +6,7 @@ import {
   ViewChild,
   ElementRef,
   AfterViewInit,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FocusLightComponent } from './components/focus-light/focus-light.component';
@@ -53,10 +54,12 @@ export class AppComponent {
   title = 'portfolio2024';
 
   @ViewChild('container') containerRef!: ElementRef;
+  @ViewChild(MenuComponent) menuComponent!: MenuComponent; // Referencia al MenuComponent
 
   ngOnInit(): void {
     this.themeServ.darkMode$.subscribe((isDarkMode) => {
       this.currentThemeClass = isDarkMode ? 'theme-dark' : 'theme-light';
+      this.cdr.detectChanges(); // Fuerza a Angular a detectar cambios después de actualizar la propiedad
     });
 
     this.projectServ.getProjects().subscribe((projects) => {
@@ -66,12 +69,15 @@ export class AppComponent {
 
   projectServ = inject(ProjectsService);
   themeServ = inject(ThemeService);
+  private cdr = inject(ChangeDetectorRef);
   translateServ = inject(TranslationService);
 
   projects: Project[] = [];
   isFlipped = false;
   currentThemeClass = '';
   isFading: boolean | null = null; // Cambiado a null inicialmente
+
+  shouldDeselectAll = false; // Variable para controlar la deselección
 
   @HostBinding('class') className = '';
 
@@ -83,6 +89,12 @@ export class AppComponent {
     this.projectServ.selectProject(project);
     this.projectServ.showProjectDetails = true; // Cambiar el estado a mostrar detalles del proyecto
     this.flipCard();
+  }
+
+  onDeselectAll() {
+    if (this.menuComponent) {
+      this.menuComponent.nullearr(); // Llama al método en el MenuComponent
+    }
   }
 
   goBack() {
@@ -97,6 +109,11 @@ export class AppComponent {
       focusElement.style.left = `${event.pageX}px`;
       focusElement.style.top = `${event.pageY}px`;
     }
+  }
+
+  // Maneja el evento de deselección
+  onDeselectAllTriggered(): void {
+    this.shouldDeselectAll = true;
   }
 
   handleNotification() {
