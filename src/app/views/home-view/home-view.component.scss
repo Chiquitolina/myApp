@@ -1,4 +1,14 @@
 .download-btn {
-    padding: 1rem;
-    border-radius: 2rem;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+button {
+  width: 50%;
+}
+@media (max-width: 768px) {
+  button {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 }
