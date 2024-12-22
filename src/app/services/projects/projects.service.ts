@@ -229,6 +229,37 @@ export class ProjectsService {
     },
     {
       id: 4,
+      name: 'PlayerDex API',
+      description:
+        'PlayerDex API es una solución desarrollada en PHP con Laravel para gestionar jugadores, sus habilidades y posiciones dentro de un equipo. Permite realizar operaciones CRUD y cuenta con una funcionalidad avanzada para formar equipos optimizados según habilidades específicas, garantizando una experiencia intuitiva y segura. Diseñada para ser eficiente y escalable, incluye autenticación con Bearer Token para proteger ciertas acciones, como la eliminación de jugadores..',
+      link: '',
+      image: '',
+      showDetails: false,
+      linkRepository: 'https://github.com/Chiquitolina/PlayerDex-API',
+      technologies: [
+        {
+          name: 'php',
+          image:
+            'https://e7.pngegg.com/pngimages/666/502/png-clipart-brand-php-logo-computer-file-product-breeze-blue-text.png',
+        },
+        {
+          name: 'laravel',
+          image:
+            'https://i.pinimg.com/736x/fc/8f/6b/fc8f6b14ee516f1da38da90f247fa2c4.jpg',
+        },
+        {
+          name: 'eloquent-orm',
+          image:
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA0UYsNMEKIAS_byWysBbCvEUw8REWV1GR3Q&s',
+        },
+        {
+          name: 'authorization-token',
+          image: 'https://w7.pngwing.com/pngs/52/467/png-transparent-access-token-business-user-computer-icons-real-estate-business-text-hand-people-thumbnail.png',
+        },
+      ],
+    },
+        {
+      id: 4,
       name: 'About this app',
       description:
         'aig1996 es una aplicación de portafolio desarrollada en Angular 18, creada para profundizar en mi framework de frontend preferido. Además de presentar mis proyectos y experiencia, esta app destaca mis habilidades técnicas mediante características como la traducción multilenguaje con ngx-translate, un sistema de temas claro y oscuro configurable mediante un toggle, y un manejo eficiente de los estados a través de observables, garantizando una interfaz fluida y reactiva.',
@@ -281,6 +312,7 @@ export class ProjectsService {
         },
       ],
     },
+    
   ];
 
   showProjectDetails = false; // Estado para manejar la vista actual

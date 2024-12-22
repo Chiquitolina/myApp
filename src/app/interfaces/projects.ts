@@ -8,6 +8,7 @@ export interface Project {
     image: string;
     showDetails: boolean;
     technologies?: any[];
+    linkRepository?: string;
     clientSide?: sideProject;
     serverSide?: sideProject
 }
