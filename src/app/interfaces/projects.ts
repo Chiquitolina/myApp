@@ -4,7 +4,7 @@ export interface Project {
     id: number;
     name: string;
     description: string;
-    link?: string;
+    link: string;
     image: string;
     showDetails: boolean;
     technologies?: any[];

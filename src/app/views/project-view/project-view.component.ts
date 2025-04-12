@@ -6,10 +6,12 @@ import { Project } from '../../interfaces/projects';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { TechnologiesComponent } from '../../components/technologies/technologies.component';
+import {UrlHealthMonitorComponent} from 'url-health-monitor'
+
 @Component({
   selector: 'app-project-view',
   standalone: true,
-  imports: [MenuComponent, TranslateModule, CommonModule, TechnologiesComponent],
+  imports: [MenuComponent, TranslateModule, CommonModule, TechnologiesComponent, UrlHealthMonitorComponent],
   templateUrl: './project-view.component.html',
   styleUrl: './project-view.component.scss'
 })
