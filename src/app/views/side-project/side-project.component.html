@@ -1,12 +1,12 @@
 <div class="d-flex">
   <div class="d-flex flex-column align-items-center justify-content-center">
     <div
-      class="d-flex flex-wrap justify-content-between align-items-center w-75"
+      class="d-flex flex-column flex-wrap w-75"
     >
       <h3>
         {{ this.sideProject.projectName }} <i>({{ this.sideProject.side }})</i>
       </h3>
-      <a href="{{this.sideProject.linkRepository}}" target="_blank"> {{ "GO_REPOSITORY" | translate }} </a>
+      <a class="mb-2" href="{{this.sideProject.linkRepository}}" target="_blank"> {{ "GO_REPOSITORY" | translate }} </a>
     </div>
     <p class="w-75">
       {{ sideProject.description | translate }}

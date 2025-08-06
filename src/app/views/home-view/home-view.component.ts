@@ -19,12 +19,12 @@ export class HomeViewComponent {
     this.notifyApp.emit(); // Emite el evento hacia el componente padre
   }
 
-  downloadPdf(): void {
-    const pdfUrl = 'https://drive.google.com/uc?export=download&id=1DIfuBFu-DOMqeVncQMzOO6uZEVZXmOFZ';
-    const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = 'ALEJANDRO IGNACIO GODINO - FULL STACK DEVELOPER.pdf';
-    link.click();
-  }
+    downloadPdf(): void {
+      const pdfUrl = 'https://drive.google.com/uc?export=download&id=16cPJpRkdbZ2zZnTIlM07lLey6zrpdxwV';
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.download = 'ALEJANDRO IGNACIO GODINO - FULL STACK DEVELOPER.pdf';
+      link.click();
+    }
 
 }

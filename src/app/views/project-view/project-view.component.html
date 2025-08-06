@@ -5,16 +5,16 @@
     >
       <h3 class="w-75">{{ this.project.name }}</h3>
       <div class="d-flex flex-column">
-        <!--
         <div class="d-flex align-items-center">
-        <app-url-health-monitor [url]="'{{project.link}}'"  [showText]="true" [showStatus]="true"></app-url-health-monitor>
-        @if (project.link !== '') {
-        <a href="{{ project.link }}" target="_blank">{{
-          "TEST_APP" | translate
-        }}</a>
-        
-        }</div>
-        -->
+          <!--
+  <app-url-health-monitor [url]="'{{project.link}}'"  [showText]="true" [showStatus]="true"></app-url-health-monitor> -->
+          @if (project.link !== '') {
+          <a href="{{ project.link }}" target="_blank">{{
+            "TEST_APP" | translate
+          }}</a>
+
+          }
+        </div>
         @if (project.linkRepository) {
         <a href="{{ project.linkRepository }}" target="_blank">
           {{ "GO_REPOSITORY" | translate }}</a
