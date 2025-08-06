@@ -18,7 +18,7 @@ export class ProjectsService {
       image: 'https://i.postimg.cc/HLfBr6Gh/actdel.png',
       showDetails: false,
       clientSide: {
-        projectName: 'E-Commerce',
+        projectName: 'Devtácora',
         side: 'client-side',
         description: 'AUTH_CLIENT_DESC',
         linkRepository: 'https://github.com/Chiquitolina/authForms',
@@ -64,7 +64,7 @@ export class ProjectsService {
         ],
       },
       serverSide: {
-        projectName: 'E-Commerce',
+        projectName: 'Devtácora',
         side: 'server-side',
         description: 'AUTH_SERVER_DESC',
         linkRepository: 'https://github.com/Chiquitolina/auth-node-express-prisma',
@@ -111,7 +111,7 @@ export class ProjectsService {
       image: 'https://i.postimg.cc/HLfBr6Gh/actdel.png',
       showDetails: false,
       clientSide: {
-        projectName: 'E-Commerce',
+        projectName: 'AuthFlow',
         side: 'client-side',
         description: 'AUTH_CLIENT_DESC',
         linkRepository: 'https://github.com/Chiquitolina/authForms',
@@ -157,7 +157,7 @@ export class ProjectsService {
         ],
       },
       serverSide: {
-        projectName: 'E-Commerce',
+        projectName: 'AuthFlow',
         side: 'server-side',
         description: 'AUTH_SERVER_DESC',
         linkRepository: 'https://github.com/Chiquitolina/auth-node-express-prisma',
