@@ -9,4 +9,6 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class FooterComponent {
 
+  currentYear: number = new Date().getFullYear();
+
 }

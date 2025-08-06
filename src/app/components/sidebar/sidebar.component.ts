@@ -1,9 +1,9 @@
 import { Component, Output, EventEmitter, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { MenuComponent } from '../menu/menu.component';
+import { MenuComponent } from '../../core/components/menu/menu.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
-import { ThemeService } from '../../services/theme/theme.service';
+import { ThemeService } from '../../core/services/theme/theme.service';
 @Component({
   selector: 'app-sidebar',
   standalone: true,

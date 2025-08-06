@@ -1,8 +1,8 @@
 import { Component, Output, EventEmitter, inject } from '@angular/core';
-import { MenuComponent } from '../../components/menu/menu.component';
-import { ProjectsService } from '../../services/projects/projects.service';
+import { MenuComponent } from '../../core/components/menu/menu.component';
+import { ProjectsService } from '../../core/services/projects/projects.service';
 import { Observable } from 'rxjs';
-import { Project } from '../../interfaces/projects';
+import { Project } from '../../core/interfaces/projects';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { TechnologiesComponent } from '../../components/technologies/technologies.component';

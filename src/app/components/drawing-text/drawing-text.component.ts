@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ThemeService } from '../../services/theme/theme.service';
+import { ThemeService } from '../../core/services/theme/theme.service';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';

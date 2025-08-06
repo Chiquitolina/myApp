@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { DrawingTextComponent } from '../../components/drawing-text/drawing-text.component';
-import { MenuComponent } from '../../components/menu/menu.component';
+import { MenuComponent } from '../../core/components/menu/menu.component';
 import { TranslateModule } from '@ngx-translate/core';
 import {MatButtonModule} from '@angular/material/button';
 

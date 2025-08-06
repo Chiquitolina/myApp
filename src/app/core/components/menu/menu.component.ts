@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, inject } from '@angular/core';
-import { MenuButtonComponent } from '../menu-button/menu-button.component';
+import { MenuButtonComponent } from '../../../components/menu-button/menu-button.component';
 import { ProjectsService } from '../../services/projects/projects.service';
 import { Project } from '../../interfaces/projects';
 import { CommonModule } from '@angular/common';

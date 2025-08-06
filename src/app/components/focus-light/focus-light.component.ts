@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, OnDestroy, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ThemeService } from '../../services/theme/theme.service';
+import { ThemeService } from '../../core/services/theme/theme.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
