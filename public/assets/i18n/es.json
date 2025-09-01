@@ -1,7 +1,7 @@
 {
   "HELLO": "Hola",
   "WELCOME": "Bienvenido",
-  "WELCOMEDESCRIPTION" : "Soy Alejandro, desarrollador de software de 29 años con una gran pasión por la tecnología, la ciencia y la matemática. Actualmente curso la Licenciatura en Ciencias de la Computación en la Universidad Nacional de Rosario, lo cual me permite profundizar en los fundamentos teóricos y prácticos de la programación. Estoy comprometido con la optimización de procesos y sistemas, minimización de errores, el aprendizaje continuo y la divulgación de Angular como marco de desarrollo web y sus aplicaciones.",
+  "WELCOMEDESCRIPTION" : "...gran pasión por la profundización de los fundamentos teóricos y prácticos de la programación. Estoy comprometido con la optimización de procesos y sistemas, minimización de errores, el aprendizaje continuo y la divulgación de Angular como marco de desarrollo web y sus aplicaciones.",
   "MENUTITLE": "Proyectos",
   "MAINTITLE": "Inicio",
   "LANGUAGE_ENGLISH": "Idioma Inglés",
@@ -15,11 +15,14 @@
   "ECOMMERCE_CLIENT_DESC": "Para el cliente de este e-commerce, se usa Angular versión 18 para aprovechar las últimas funcionalidades del framework. La aplicación utiliza nuevas directivas declarativas @if, @for y @switch, que simplifican la lógica de las plantillas. También se emplea el método inject y se optimiza la estructura mediante pipes, lo que permite mantener el código modular y claro. La separación de responsabilidades se logra mediante servicios, con vistas y componentes bien organizados para ofrecer una experiencia de usuario coherente y escalable",
   "ECOMMERCE_SERVER_DESC": "Este proyecto es una API de servidor para una plataforma de eCommerce, desarrollada en Node.js utilizando el framework Express.js y estructurada bajo el patrón Modelo-Vista-Controlador (MVC). La API proporciona funcionalidades completas para manejar productos, usuarios, carritos de compras y pedidos, optimizada para ser la base de aplicaciones de comercio electrónico.",
   "DEVTACORA_DESC": "Devtacora es un sistema de blog moderno y escalable, desarrollado en Angular y node.js, que permite la publicación y organización de contenido mediante categorías y subcategorías. Incluye vistas dinámicas para el listado de publicaciones y la visualización individual de cada post, además de un sistema de valoración para los artículos. La aplicación está desplegada en un servidor Ubuntu con Nginx configurado como servidor web y posee un workflow de CI/CD automatizado mediante GitHub Actions, con despliegues separados para las ramas dev y prod.",
+  "THISAPP_DESC": "alejandrogodino.dev es una aplicación de portafolio desarrollada en Angular 18, creada para profundizar en mi framework de frontend preferido. Además de presentar mis proyectos y experiencia, esta app destaca mis habilidades técnicas mediante características como la traducción multilenguaje con ngx-translate, un sistema de temas claro y oscuro configurable mediante un toggle, y un manejo eficiente de los estados a través de observables, garantizando una interfaz fluida y reactiva.",
+  "PLAYERDEX_DESC": "PlayerDex API es una solución desarrollada en PHP con Laravel para gestionar jugadores, sus habilidades y posiciones dentro de un equipo. Permite realizar operaciones CRUD y cuenta con una funcionalidad avanzada para formar equipos optimizados según habilidades específicas, garantizando una experiencia intuitiva y segura. Diseñada para ser eficiente y escalable, incluye autenticación con Bearer Token para proteger ciertas acciones, como la eliminación de jugadores.",
   "BACK_BTN": "Volver al Inicio",
   "COPYRIGHT": "Todos los derechos reservados",
   "LINKS": "Enlaces",
   "TEST_APP": "Ir a la App",
   "GO_REPOSITORY": "Ir al Repositorio",
-  "TECHNOLOGIES": "Tecnologías usadas",
+  "PROJECT_OVERVIEW_TITLE": "Información general",
+  "TECHNOLOGIES": "Stack tecnológico", 
   "DOWNLOAD_CV": "Descargar CV"
 }

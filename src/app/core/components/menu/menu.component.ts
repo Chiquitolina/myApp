@@ -9,11 +9,9 @@ import { ThemeService } from '../../services/theme/theme.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { sideProject } from '../../interfaces/sideProject';
-import {MatListModule} from '@angular/material/list';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule } from '@angular/forms';  // Asegúrate de importar FormsModule
-
-
 @Component({
   selector: 'app-menu',
   standalone: true,
@@ -32,7 +30,9 @@ import { FormsModule } from '@angular/forms';  // Asegúrate de importar FormsMo
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MenuComponent {
+
   @Output() notifyApp = new EventEmitter<void>();
+  @Output() deselectAll = new EventEmitter<void>();
 
   projects: Project[] = [];
   currentThemeClass: string = '';
@@ -41,6 +41,8 @@ export class MenuComponent {
   showDetails = false; // Estado inicial: detalles ocultos
 
   visibleDetailIndex: number | null = null;
+
+  _projectServ = inject(ProjectsService);
 
   private projectServ = inject(ProjectsService);
   private themeServ = inject(ThemeService);
@@ -53,7 +55,7 @@ export class MenuComponent {
       error: (error) => {
         console.error('Error:', error); // Esto es el 'error'
       },
-      complete: () => {},
+      complete: () => { },
     });
 
     this.themeServ.darkMode$.subscribe((isDarkMode) => {
@@ -84,5 +86,16 @@ export class MenuComponent {
 
   nullearr() {
     this.selectedProject = null;
+  }
+
+  goBack() {
+    this._projectServ.showProjectDetails = false;
+    this._projectServ.selectedSide.next(null);
+    /*this.sideProject = null;*/
+    this.onDeselectAll();
+  }
+
+  onDeselectAll() {
+    this.deselectAll.emit(); // Emite el evento cuando el botón es presionado
   }
 }

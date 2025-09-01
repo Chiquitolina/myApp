@@ -2,6 +2,25 @@ mat-drawer {
   border-left: 0;
 }
 
+app-menu {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  animation: reveal 0.75s ease forwards;
+  animation-delay: 3.5s;
+}
+
+app-drawing-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 100%;
+  animation: fadeOut 0.6s ease forwards;
+  animation-delay: 3s; /* empieza a desaparecer cuando arranca main-data */
+}
+
 svg {
   margin-left: 0.25rem;
   background-color: transparent;
@@ -16,7 +35,7 @@ h1 {
   border-radius: 2rem;
   overflow: hidden;
   position: relative;
-  height: 88%;
+  height: 90%;
   transition: transform 1s; /* Transición para el giro */
 }
 
@@ -33,20 +52,19 @@ h1 {
 }
 
 .card-back {
-  transform: rotateY(180deg); /* Rota la vista trasera para alinearla correctamente */
+  transform: rotateY(
+    180deg
+  ); /* Rota la vista trasera para alinearla correctamente */
 }
 
 .header {
   height: 18%;
 }
 
-.footer {
-  height: 10%;
-}
-
 .mid-card {
- min-height: 70%;
- overflow-y: auto;
+  min-height: 70%;
+  overflow-y: auto;
+  width: 75%;
 }
 
 .fade-enter {
@@ -54,28 +72,70 @@ h1 {
   transition: opacity 0.5s ease-in;
 }
 
-
 .fade-leave {
   opacity: 0;
   transition: opacity 0.5s ease-out;
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    height: auto;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+
 @keyframes bounceFlip {
-    0% {
-      transform: rotateY(0deg);
-    }
-    50% {
-      transform: rotateY(380deg);
-    }
-    100% {
-      transform: rotateY(360deg);
-    }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(380deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes reveal {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px; /* poné un valor mayor que la altura de tu contenido */
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: auto;
   }
 
-  @media (max-width: 768px) {
-
-    .header {
-      height: auto;
-    }
-
+  .mid-card {
+    width: 100%;
   }
+
+  .cardd {
+    border: none;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .container.no-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0 !important; /* si querés quitar arriba */
+    padding-bottom: 0 !important; /* si querés quitar abajo */
+  }
+
+  .mid-card {
+    align-items: center;
+    justify-content: center;
+  }
+}

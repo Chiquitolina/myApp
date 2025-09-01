@@ -5,9 +5,13 @@
     class="d-flex flex-column align-items-xl-start align-items-sm-center align-items-center align-items-xl-start"
   >
     <h4>{{ "MENUTITLE" | translate }}</h4>
-
     <form>
-      <mat-selection-list [(ngModel)]="selectedProject" #shoesList name="shoes" [multiple]="false">
+      <mat-selection-list
+        [(ngModel)]="selectedProject"
+        #shoesList
+        name="shoes"
+        [multiple]="false"
+      >
         @for (project of projects; track project; let i = $index) {
         <mat-list-option
           (click)="
@@ -16,39 +20,19 @@
           [value]="project"
           ><i class="project-name">{{ project.name }}</i></mat-list-option
         >
-        @if (project.clientSide && project.serverSide) {
-        <div
-          class="d-flex flex-column w-100 details"
-          style="font-size: 18px"
-          [ngClass]="{ visible: this.visibleDetailIndex === i }"
-        >
-          <mat-selection-list #shoesList name="shoes" [multiple]="false">
-            <mat-list-option
-              (click)="
-                selectProject(project, i);
-                handleMenuButtonClick();
-                selectSide(project.clientSide)
-              "
-              [value]="project"
-              ><i class="text-white">client-side</i></mat-list-option
-            >
-            <mat-list-option
-              (click)="
-                selectProject(project, i);
-                handleMenuButtonClick();
-                selectSide(project.serverSide)
-              "
-              [value]="project"
-              ><i class="text-white">server-side</i></mat-list-option
-            >
-          </mat-selection-list>
-        </div>
-        }
+
         <mat-divider></mat-divider>
         }
       </mat-selection-list>
     </form>
-
+    <div
+      style="cursor: pointer"
+      class="align-items-center back w-100"
+      (click)="goBack(); handleMenuButtonClick()"
+    >
+      <mat-icon>backspace</mat-icon>
+      <i>{{ "BACK_BTN" | translate }}</i>
+    </div>
     <!--
     <h4 class="mt-2">{{ "LINKS" | translate }}</h4>
     <div class="mt-2">

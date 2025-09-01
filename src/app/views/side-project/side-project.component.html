@@ -1,19 +1,42 @@
 <div class="d-flex">
   <div class="d-flex flex-column align-items-center justify-content-center">
-    <div
-      class="d-flex flex-column flex-wrap w-75"
-    >
+    <div class="d-flex flex-column flex-wrap w-75">
       <h3>
         {{ this.sideProject.projectName }} <i>({{ this.sideProject.side }})</i>
       </h3>
-      <a class="mb-2" href="{{this.sideProject.linkRepository}}" target="_blank"> {{ "GO_REPOSITORY" | translate }} </a>
+      <div class="d-flex align-items-center mb-2">
+        <img width="20" src="/assets/github-logo-white.png" alt="" />
+
+        <div>
+          <a
+            class=""
+            href="{{ this.sideProject.linkRepository }}"
+            target="_blank"
+          >
+            {{ "GO_REPOSITORY" | translate }}
+          </a>
+        </div>
+      </div>
     </div>
-    <p class="w-75">
+    <p class="header-text w-75" [class.hide]="panelOpen">
       {{ sideProject.description | translate }}
     </p>
-    <app-technologies
-      [technologies]="this.sideProject.technologies"
-      class="w-75"
-    ></app-technologies>
+    <mat-accordion class="w-75">
+      <mat-expansion-panel
+        class="bg-transparent border w-75"
+        (opened)="panelOpen = true"
+        (closed)="panelOpen = false"
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title style="font-weight: 400">
+            <mat-icon>build</mat-icon> {{ "TECHNOLOGIES" | translate }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-technologies
+          [technologies]="this.sideProject.technologies"
+          class="w-75"
+        ></app-technologies>
+      </mat-expansion-panel>
+    </mat-accordion>
   </div>
 </div>

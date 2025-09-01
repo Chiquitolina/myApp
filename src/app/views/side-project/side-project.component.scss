@@ -1,0 +1,21 @@
+mat-icon {
+  margin-right: 0.75rem;
+}
+
+img {
+  margin-right: 0.5rem;
+}
+
+.header-text {
+  transition: opacity 0.5s ease, transform 0.5s ease, max-height 0.5s ease;
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 500px; /* valor grande para cubrir la altura del texto */
+  overflow: hidden;
+}
+
+.header-text.hide {
+  opacity: 0;
+  transform: translateY(-20px);
+  max-height: 0;
+}

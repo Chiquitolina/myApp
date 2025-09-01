@@ -9,38 +9,61 @@ a {
   text-decoration: none;
 }
 
+#vanta-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .theme-dark,
 .theme-light {
   transition: background-color 0.6s ease, color 0.6s ease;
 }
 
 .theme-dark {
-  background-color: black; /* Color de fondo para el tema oscuro */
-  color: #ffffff; /* Color de texto para el tema oscuro */
+  background-color: black;
+  color: #ffffff;
 
   mat-drawer {
-    background-color: rgba(33, 37, 41, 0.95);
+    background-color: rgba(0, 0, 0, 0.987);
     border: 2px solid #c4c4c4;
-    color: #ffffff; /* Color de texto para el tema oscuro */
+    color: #ffffff;
   }
 
+  // 👇 acá va el mixin, scoped a .theme-dark
+  @include mat.tabs-overrides(
+    (
+      active-label-text-color: whitesmoke,
+      active-focus-label-text-color: whitesmoke,
+      // 👈 fuerza mismo color que active
+      inactive-label-text-color: rgb(100, 99, 99),
+      active-hover-label-text-color: red,
+      active-indicator-color: #1976d2,
+      divider-color: transparent,
+    )
+  );
+
   .mat-button-toggle-checked {
-    background-color: whitesmoke !important; /* Color de fondo personalizado */
-    color: black; /* Cambiar color del texto */
+    background-color: whitesmoke !important;
+    color: black;
   }
 
   .download-btn {
-    border: 1px solid #ffffff;
+    border: 2px solid #ffffff;
   }
 
   .project-name {
     color: white;
   }
 
-  .mat-button-toggle-checked span {
-    color: #000000;
+  .menu-btn {
+    background-color: rgba(255, 255, 255, 0.95);
   }
 
+  .mat-button-toggle-checked span,
   .mat-button-toggle-checked i {
     color: #000000;
   }
@@ -50,7 +73,7 @@ a {
   }
 
   text {
-    stroke: whitesmoke; /* Color de contorno para el texto en tema claro */
+    stroke: whitesmoke;
   }
 
   svg {
@@ -71,18 +94,21 @@ a {
   }
 
   .cardd {
-    background-color: #212529;
+    background-color: rgba(0, 0, 0, 0.9);
   }
 }
 
 .theme-light {
-  background-color: whitesmoke; /* Color de fondo para el tema claro */
-  color: #000000; /* Color de texto para el tema claro */
+  background-color: whitesmoke;
+  /* Color de fondo para el tema claro */
+  color: #000000;
+  /* Color de texto para el tema claro */
 
   mat-drawer {
     background-color: rgba(255, 255, 255, 0.95);
     border: 2px solid #c4c4c4;
-    color: #000000; /* Color de texto para el tema claro */
+    color: #000000;
+    /* Color de texto para el tema claro */
   }
 
   .download-btn {
@@ -94,11 +120,17 @@ a {
   }
 
   .project-name {
-    color: #212529;
+    color: #1f2327;
+  }
+
+  .menu-btn {
+    background-color: transparent;
+    border: 0.5px solid rgb(109, 107, 107);
   }
 
   text {
-    stroke: black; /* Color de contorno para el texto en tema claro */
+    stroke: black;
+    /* Color de contorno para el texto en tema claro */
   }
 
   svg {
@@ -119,7 +151,7 @@ a {
   }
 
   .cardd {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
   }
 }
 
@@ -133,7 +165,8 @@ body {
   font-family: "Montserrat", sans-serif;
   width: 100vw;
   height: 100vh;
-  background-color: var(--background-color); /* Usar variable para el fondo */
+  background-color: var(--background-color);
+  /* Usar variable para el fondo */
 }
 
 .container {
@@ -166,9 +199,11 @@ body {
   0% {
     filter: brightness(0.8);
   }
+
   50% {
     filter: brightness(1.1);
   }
+
   100% {
     filter: brightness(1);
   }
@@ -178,10 +213,29 @@ body {
   0% {
     filter: brightness(1.2);
   }
+
   50% {
     filter: brightness(0.9);
   }
+
   100% {
     filter: brightness(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-dark {
+    .cardd {
+    }
+
+    .back {
+      border: 1px solid white;
+    }
+  }
+
+  .theme-light {
+    .back {
+      border: 1px solid white;
+    }
   }
 }

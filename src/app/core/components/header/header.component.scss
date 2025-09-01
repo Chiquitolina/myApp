@@ -1,7 +1,15 @@
+.menu-btn {
+  margin-left: 0.25rem; 
+  color: #212529;
+  box-shadow: none;
+}
+
+.back {
+  display: flex;
+}
 
 @media (max-width: 768px) {
   .back {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+      display: none;
   }
 }

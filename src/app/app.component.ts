@@ -27,6 +27,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { SideProjectComponent } from './views/side-project/side-project.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { BackgroundComponent } from './shared/components/background/background.component';
+import { DrawingTextComponent } from './components/drawing-text/drawing-text.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -46,6 +48,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     MatIconModule,
     SideProjectComponent,
     SidebarComponent,
+    BackgroundComponent,
+    DrawingTextComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -80,6 +84,7 @@ export class AppComponent {
   shouldDeselectAll = false; // Variable para controlar la deselección
 
   @HostBinding('class') className = '';
+  
 
   flipCard(): void {
     this.isFlipped = !this.isFlipped;

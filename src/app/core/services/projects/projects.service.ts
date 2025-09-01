@@ -10,7 +10,7 @@ export class ProjectsService {
   constructor() {}
 
   private projects: Project[] = [
-        {
+    {
       id: 0,
       name: 'Devtácora',
       description: 'DEVTACORA_DESC',
@@ -67,7 +67,8 @@ export class ProjectsService {
         projectName: 'Devtácora',
         side: 'server-side',
         description: 'AUTH_SERVER_DESC',
-        linkRepository: 'https://github.com/Chiquitolina/auth-node-express-prisma',
+        linkRepository:
+          'https://github.com/Chiquitolina/auth-node-express-prisma',
         technologies: [
           {
             name: 'node-js',
@@ -88,7 +89,8 @@ export class ProjectsService {
           },
           {
             name: 'zod',
-            image: 'https://raw.githubusercontent.com/colinhacks/zod/master/logo.svg?sanitize=true',
+            image:
+              'https://raw.githubusercontent.com/colinhacks/zod/master/logo.svg?sanitize=true',
           },
           {
             name: 'typescript',
@@ -97,8 +99,7 @@ export class ProjectsService {
           },
           {
             name: 'mysql',
-            image:
-              'https://pngimg.com/uploads/mysql/mysql_PNG23.png',
+            image: 'https://pngimg.com/uploads/mysql/mysql_PNG23.png',
           },
         ],
       },
@@ -160,7 +161,8 @@ export class ProjectsService {
         projectName: 'AuthFlow',
         side: 'server-side',
         description: 'AUTH_SERVER_DESC',
-        linkRepository: 'https://github.com/Chiquitolina/auth-node-express-prisma',
+        linkRepository:
+          'https://github.com/Chiquitolina/auth-node-express-prisma',
         technologies: [
           {
             name: 'node-js',
@@ -181,7 +183,8 @@ export class ProjectsService {
           },
           {
             name: 'zod',
-            image: 'https://raw.githubusercontent.com/colinhacks/zod/master/logo.svg?sanitize=true',
+            image:
+              'https://raw.githubusercontent.com/colinhacks/zod/master/logo.svg?sanitize=true',
           },
           {
             name: 'typescript',
@@ -190,8 +193,7 @@ export class ProjectsService {
           },
           {
             name: 'mysql',
-            image:
-              'https://pngimg.com/uploads/mysql/mysql_PNG23.png',
+            image: 'https://pngimg.com/uploads/mysql/mysql_PNG23.png',
           },
         ],
       },
@@ -324,7 +326,7 @@ export class ProjectsService {
       id: 4,
       name: 'PlayerDex API',
       description:
-        'PlayerDex API es una solución desarrollada en PHP con Laravel para gestionar jugadores, sus habilidades y posiciones dentro de un equipo. Permite realizar operaciones CRUD y cuenta con una funcionalidad avanzada para formar equipos optimizados según habilidades específicas, garantizando una experiencia intuitiva y segura. Diseñada para ser eficiente y escalable, incluye autenticación con Bearer Token para proteger ciertas acciones, como la eliminación de jugadores..',
+        'PLAYERDEX_DESC',
       link: '',
       image: '',
       showDetails: false,
@@ -347,15 +349,15 @@ export class ProjectsService {
         },
         {
           name: 'authorization-token',
-          image: 'https://w7.pngwing.com/pngs/52/467/png-transparent-access-token-business-user-computer-icons-real-estate-business-text-hand-people-thumbnail.png',
+          image:
+            'https://w7.pngwing.com/pngs/52/467/png-transparent-access-token-business-user-computer-icons-real-estate-business-text-hand-people-thumbnail.png',
         },
       ],
     },
-        {
+    {
       id: 5,
       name: 'About this app',
-      description:
-        'aig1996 es una aplicación de portafolio desarrollada en Angular 18, creada para profundizar en mi framework de frontend preferido. Además de presentar mis proyectos y experiencia, esta app destaca mis habilidades técnicas mediante características como la traducción multilenguaje con ngx-translate, un sistema de temas claro y oscuro configurable mediante un toggle, y un manejo eficiente de los estados a través de observables, garantizando una interfaz fluida y reactiva.',
+      description: 'AUTH_CLIENT_DESC',
       link: 'link',
       image: '',
       showDetails: false,
@@ -405,7 +407,6 @@ export class ProjectsService {
         },
       ],
     },
-    
   ];
 
   showProjectDetails = false; // Estado para manejar la vista actual

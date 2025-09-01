@@ -12,6 +12,6 @@ import { ChipModule } from 'primeng/chip';
 })
 export class TechnologiesComponent {
 
-  @Input() technologies : any[] = [];
+  @Input() technologies : any[] | undefined = [];
 
 }

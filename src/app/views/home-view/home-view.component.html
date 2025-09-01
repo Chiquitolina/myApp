@@ -1,11 +1,21 @@
-<div class="container d-flex align-items-start">
-  <div class="d-flex flex-column align-items-center">
-    <app-drawing-text class="w-100"></app-drawing-text>
-    <p class="w-75">
-      {{ "WELCOMEDESCRIPTION" | translate }}
-    </p>
-    <div class="d-flex w-75 align-items-start">
-      <button (click)="downloadPdf()" class="download-btn bg-transparent ">
+<div class="container d-flex align-items-center">
+  <div class="d-flex flex-column align-items-center w-100">
+    <div [class.animate]="animateContainer" class="main-data w-75">
+      <span style="font-size: 3.25rem; font-weight: 500"
+        >Alejandro Ignacio Godino
+      </span>
+      <div class="d-flex align-items-center justify-content-between mt-3">
+        <i>Software Developer</i>
+        <a
+          target="_blank"
+          href="
+         https://www.linkedin.com/in/alejandro-ignacio-godino/"
+          ><mat-icon svgIcon="linkedin" class="violet-icon"></mat-icon
+        ></a>
+      </div>
+      <button (click)="downloadPdf()" class="download-btn bg-transparent">
+        <mat-icon>cloud_download</mat-icon>
+
         {{ "DOWNLOAD_CV" | translate }}
       </button>
     </div>

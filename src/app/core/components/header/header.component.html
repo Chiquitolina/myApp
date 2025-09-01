@@ -1,13 +1,14 @@
-<div class="w-100 d-flex flex-wrap justify-content-between p-5 pb-3 pt-3">
+<div class="w-100 d-flex flex-wrap justify-content-between p-5 pt-4 pb-3">
   @if (!this._projectServ.showProjectDetails && this.sideProject == null) {
   <h2 class="d-none d-xl-block d-lg-block d-md-block">
+    <mat-icon style="margin-right: 1rem">home</mat-icon>
     <b>{{ "MAINTITLE" | translate }}</b>
   </h2>
   } @else {
   <div
     style="cursor: pointer"
-    class="d-flex align-items-center back"
-    (click)="goBack(); handleMenuButtonClick(); "
+    class="align-items-center back"
+    (click)="goBack(); handleMenuButtonClick()"
   >
     <mat-icon>backspace</mat-icon>
     <i style="margin-left: 0.5rem">{{ "BACK_BTN" | translate }}</i>
@@ -23,14 +24,13 @@
         aria-label="Favorite Color"
         [hideSingleSelectionIndicator]="hideSingleSelectionIndicator()"
         [formControl]="toggleControl"
-        (change)="onToggleChange($event.value)" 
-
+        (change)="onToggleChange($event.value)"
       >
         <mat-button-toggle [value]="true"
           ><i class="pi pi-sun"></i>
           <!-- Icono de Sol -->
         </mat-button-toggle>
-        <mat-button-toggle class=""  [value]="false"
+        <mat-button-toggle class="" [value]="false"
           ><i class="pi pi-moon"></i>
           <!-- Icono de Luna -->
         </mat-button-toggle>
@@ -42,7 +42,7 @@
         name="favoriteColor"
         aria-label="Favorite Color"
         [hideSingleSelectionIndicator]="hideSingleSelectionIndicator()"
-        (change)="onLanguageChange($event.value)" 
+        (change)="onLanguageChange($event.value)"
       >
         <mat-button-toggle [value]="true"
           ><span>EN</span>
@@ -56,8 +56,7 @@
     </section>
   </div>
   <button
-    style="margin-left: 0.25rem; color: #212529"
-    class="bg-light d-xl-none d-lg-none d-md-none"
+    class="d-xl-none d-lg-none d-md-none menu-btn"
     mat-mini-fab
     aria-label="Example icon button with a menu icon"
     (click)="onMenuButtonClick()"

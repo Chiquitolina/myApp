@@ -1,4 +1,9 @@
-<mat-drawer #drawer mode="side" class="w-100 h-75">
+<mat-drawer
+  #drawer
+  mode="side"
+  class="w-100"
+  style="border-radius: 0; border: none"
+>
   <app-sidebar
     (notifyApp)="handleNotification(); drawer.toggle()"
   ></app-sidebar>
@@ -10,9 +15,10 @@
     isFading !== null ? { 'fade-enter': !isFading, 'fade-leave': isFading } : ''
   "
 >
+  <div id="vanta-bg" style="width: 100%; height: 100vh; position: fixed"></div>
   <div
     [ngClass]="currentThemeClass"
-    class="container w-100 h-100 d-flex flex-column"
+    class="container no-padding w-100 h-100 d-flex flex-column"
   >
     <div
       [ngClass]="currentThemeClass"
@@ -27,6 +33,7 @@
         (fadeStatusChange)="onFadeStatusChange($event)"
         (deselectAll)="onDeselectAll()"
       ></app-header>
+      <app-drawing-text class="w-100" style="width: 100%"></app-drawing-text>
       <div class="d-flex" style="overflow: auto; min-height: 70%">
         <div class="d-flex mid-card flex-wrap">
           <app-focus-light></app-focus-light>
@@ -51,10 +58,11 @@
         <app-menu
           (notifyApp)="handleNotification()"
           class="col-4 col-xl-4 col-md-4 col-sm-12 d-xl-block d-lg-block d-md-block d-sm-none d-none"
+          (deselectAll)="onDeselectAll()"
         ></app-menu>
       </div>
 
-      <app-footer class="footer"></app-footer>
+      <app-footer style="min-height: 15%" class="footer"></app-footer>
     </div>
   </div>
 </mat-drawer-container>
