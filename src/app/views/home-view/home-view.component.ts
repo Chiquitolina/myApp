@@ -25,6 +25,7 @@ export class HomeViewComponent implements OnInit {
   @Output() notifyApp = new EventEmitter<void>(); // Define un EventEmitter para emitir eventos al componente padre
 
   animateContainer = false;
+  hasAnimatedClass = false;
   private animationKey = 'about-container'; // clave única para este bloque
 
   constructor(private animateService: AnimateService) {}
@@ -43,10 +44,22 @@ export class HomeViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Solo se animará la primera vez
-    if (!this.animateService.hasAnimated(this.animationKey)) {
+    const hasAnimated = this.animateService.hasAnimated(this.animationKey);
+    console.log('Has animado?', hasAnimated);
+
+    if (!hasAnimated) {
+      // primera vez → disparar animación
       this.animateContainer = true;
+    } else {
+      // ya se animó → mantener visible
+      this.hasAnimatedClass = true;
+    }
+  }
+  markAnimated() {
+    if (this.animateContainer) {
       this.animateService.setAnimated(this.animationKey);
+      this.animateContainer = false;
+      this.hasAnimatedClass = true;
     }
   }
 }

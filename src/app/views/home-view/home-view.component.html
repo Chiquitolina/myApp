@@ -1,6 +1,11 @@
 <div class="container d-flex align-items-center">
   <div class="d-flex flex-column align-items-center w-100">
-    <div [class.animate]="animateContainer" class="main-data w-75">
+    <div
+      class="main-data w-75"
+      [class.animate]="animateContainer"
+      [class.final]="hasAnimatedClass"
+      (animationend)="markAnimated()"
+    >
       <span style="font-size: 3.25rem; font-weight: 500"
         >Alejandro Ignacio Godino
       </span>

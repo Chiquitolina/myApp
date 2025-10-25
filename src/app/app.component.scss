@@ -6,8 +6,17 @@ app-menu {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
+}
+
+.menu.animate {
   animation: reveal 0.75s ease forwards;
   animation-delay: 3.5s;
+}
+
+.menu.final {
+  max-height: 500px; /* o auto si querés */
+  opacity: 1;
+  overflow: visible;
 }
 
 app-drawing-text {

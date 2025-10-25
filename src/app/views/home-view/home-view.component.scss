@@ -7,11 +7,7 @@
 }
 mat-icon {
   margin-right: 1rem;
-  margin-left: 0.70rem;
-}
-.main-data.animate {
-  animation: reveal 0.75s ease forwards;
-  animation-delay: 3s;
+  margin-left: 0.7rem;
 }
 .main-data {
   display: none;
@@ -32,10 +28,20 @@ i {
   margin-bottom: 1rem;
   max-height: 0;
   opacity: 0;
-  overflow: hidden;
-  animation: reveal 2s ease forwards;
+  overflow: hidden; 
+}
+
+.main-data.animate {
+  animation: reveal 0.75s ease forwards;
   animation-delay: 3s;
 }
+
+.main-data.final {
+  max-height: 500px; /* o auto si querés */
+  opacity: 1;
+  overflow: visible;
+}
+
 @keyframes reveal {
   from {
     max-height: 0;

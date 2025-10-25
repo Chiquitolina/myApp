@@ -29,6 +29,7 @@ import { SideProjectComponent } from './views/side-project/side-project.componen
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { BackgroundComponent } from './shared/components/background/background.component';
 import { DrawingTextComponent } from './components/drawing-text/drawing-text.component';
+import { AnimateService } from './core/services/init-animation/animate.service';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -60,7 +61,37 @@ export class AppComponent {
   @ViewChild('container') containerRef!: ElementRef;
   @ViewChild(MenuComponent) menuComponent!: MenuComponent; // Referencia al MenuComponent
 
+  projectServ = inject(ProjectsService);
+  themeServ = inject(ThemeService);
+  private cdr = inject(ChangeDetectorRef);
+  translateServ = inject(TranslationService);
+  animateServ = inject(AnimateService);
+
+  projects: Project[] = [];
+  isFlipped = false;
+  currentThemeClass = '';
+  isFading: boolean | null = null; // Cambiado a null inicialmente
+
+  shouldDeselectAll = false; // Variable para controlar la deselección
+
+  animateContainer = false;
+  hasAnimatedClass = false;
+  private animationKey = 'menu'; // clave única para este bloque
+
+  @HostBinding('class') className = '';
+
   ngOnInit(): void {
+    const hasAnimated = this.animateServ.hasAnimated(this.animationKey);
+    console.log('Has animado?', hasAnimated);
+
+    if (!hasAnimated) {
+      // primera vez → disparar animación
+      this.animateContainer = true;
+    } else {
+      // ya se animó → mantener visible
+      this.hasAnimatedClass = true;
+    }
+
     this.themeServ.darkMode$.subscribe((isDarkMode) => {
       this.currentThemeClass = isDarkMode ? 'theme-dark' : 'theme-light';
       this.cdr.detectChanges(); // Fuerza a Angular a detectar cambios después de actualizar la propiedad
@@ -70,21 +101,6 @@ export class AppComponent {
       this.projects = projects;
     });
   }
-
-  projectServ = inject(ProjectsService);
-  themeServ = inject(ThemeService);
-  private cdr = inject(ChangeDetectorRef);
-  translateServ = inject(TranslationService);
-
-  projects: Project[] = [];
-  isFlipped = false;
-  currentThemeClass = '';
-  isFading: boolean | null = null; // Cambiado a null inicialmente
-
-  shouldDeselectAll = false; // Variable para controlar la deselección
-
-  @HostBinding('class') className = '';
-  
 
   flipCard(): void {
     this.isFlipped = !this.isFlipped;
@@ -127,5 +143,13 @@ export class AppComponent {
 
   onFadeStatusChange(fadeStatus: boolean) {
     this.isFading = fadeStatus;
+  }
+
+  markAnimated() {
+    if (this.animateContainer) {
+      this.animateServ.setAnimated(this.animationKey);
+      this.animateContainer = false;
+      this.hasAnimatedClass = true;
+    }
   }
 }

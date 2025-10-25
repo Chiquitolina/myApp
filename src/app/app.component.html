@@ -56,8 +56,11 @@
           }
         </div>
         <app-menu
+          [class.animate]="animateContainer"
+          [class.final]="hasAnimatedClass"
+          (animationend)="markAnimated()"
           (notifyApp)="handleNotification()"
-          class="col-4 col-xl-4 col-md-4 col-sm-12 d-xl-block d-lg-block d-md-block d-sm-none d-none"
+          class="col-4 col-xl-4 col-md-4 col-sm-12 d-xl-block d-lg-block d-md-block d-sm-none d-none menu"
           (deselectAll)="onDeselectAll()"
         ></app-menu>
       </div>
