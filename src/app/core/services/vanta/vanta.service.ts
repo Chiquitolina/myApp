@@ -1,4 +1,4 @@
-/*import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import * as THREE from 'three';
 import NET from 'vanta/dist/vanta.net.min';
 
@@ -52,4 +52,3 @@ export class VantaService {
   }
   
 }
-*/
