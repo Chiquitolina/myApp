@@ -1,4 +1,6 @@
-<div class="w-100 d-flex flex-wrap justify-content-between p-5 pt-4 pb-3">
+<div
+  class="w-100 d-flex flex-wrap justify-content-between p-xl-5 p-md-5 p-sm-5 p-3 pt-4 pb-3 align-items-center"
+>
   @if (!this._projectServ.showProjectDetails && this.sideProject == null) {
   <h2 class="d-none d-xl-block d-lg-block d-md-block">
     <mat-icon style="margin-right: 1rem">home</mat-icon>
@@ -16,51 +18,53 @@
   }
 
   <div
-    class="d-flex justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-center justify-content-sm-center w-75 mb-2"
+    class="cont-head d-flex justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-around justify-content-sm-around mb-2"
   >
-    <section style="margin-right: 0.5rem">
-      <mat-button-toggle-group
-        name="favoriteColor"
-        aria-label="Favorite Color"
-        [hideSingleSelectionIndicator]="hideSingleSelectionIndicator()"
-        [formControl]="toggleControl"
-        (change)="onToggleChange($event.value)"
-      >
-        <mat-button-toggle [value]="true"
-          ><i class="pi pi-sun"></i>
-          <!-- Icono de Sol -->
-        </mat-button-toggle>
-        <mat-button-toggle class="" [value]="false"
-          ><i class="pi pi-moon"></i>
-          <!-- Icono de Luna -->
-        </mat-button-toggle>
-      </mat-button-toggle-group>
-    </section>
-    <section>
-      <mat-button-toggle-group
-        [formControl]="translateToggleControl"
-        name="favoriteColor"
-        aria-label="Favorite Color"
-        [hideSingleSelectionIndicator]="hideSingleSelectionIndicator()"
-        (change)="onLanguageChange($event.value)"
-      >
-        <mat-button-toggle [value]="true"
-          ><span>EN</span>
-          <!-- Icono de Sol -->
-        </mat-button-toggle>
-        <mat-button-toggle [value]="false" class=""
-          ><span>ES</span>
-          <!-- Icono de Luna -->
-        </mat-button-toggle>
-      </mat-button-toggle-group>
-    </section>
+    <div class="d-flex">
+      <section style="margin-right: 0.5rem">
+        <mat-button-toggle-group
+          name="favoriteColor"
+          aria-label="Favorite Color"
+          [hideSingleSelectionIndicator]="hideSingleSelectionIndicator()"
+          [formControl]="toggleControl"
+          (change)="onToggleChange($event.value)"
+        >
+          <mat-button-toggle [value]="true"
+            ><i class="pi pi-sun"></i>
+            <!-- Icono de Sol -->
+          </mat-button-toggle>
+          <mat-button-toggle class="" [value]="false"
+            ><i class="pi pi-moon"></i>
+            <!-- Icono de Luna -->
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </section>
+      <section>
+        <mat-button-toggle-group
+          [formControl]="translateToggleControl"
+          name="favoriteColor"
+          aria-label="Favorite Color"
+          [hideSingleSelectionIndicator]="hideSingleSelectionIndicator()"
+          (change)="onLanguageChange($event.value)"
+        >
+          <mat-button-toggle [value]="true"
+            ><span>EN</span>
+            <!-- Icono de Sol -->
+          </mat-button-toggle>
+          <mat-button-toggle [value]="false" class=""
+            ><span>ES</span>
+            <!-- Icono de Luna -->
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </section>
+    </div>
+    <button
+      class="d-xl-none d-lg-none d-md-none menu-btn"
+      mat-mini-fab
+      aria-label="Example icon button with a menu icon"
+      (click)="onMenuButtonClick()"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
   </div>
-  <button
-    class="d-xl-none d-lg-none d-md-none menu-btn"
-    mat-mini-fab
-    aria-label="Example icon button with a menu icon"
-    (click)="onMenuButtonClick()"
-  >
-    <mat-icon>menu</mat-icon>
-  </button>
 </div>

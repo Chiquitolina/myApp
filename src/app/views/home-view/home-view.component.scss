@@ -28,7 +28,7 @@ i {
   margin-bottom: 1rem;
   max-height: 0;
   opacity: 0;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 .main-data.animate {
@@ -74,21 +74,23 @@ i {
     justify-content: center;
     width: 90%;
     line-height: 1;
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    animation: reveal 0.75s ease forwards;
-    animation-delay: 3s;
-  }
-  button {
-    width: 100%;
     margin-bottom: 1rem;
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    animation: reveal 2s ease forwards;
+  }
+
+  .main-data.animate {
+    animation: reveal 0.75s ease forwards;
     animation-delay: 3s;
-    margin-top: 1rem;
+  }
+  .download-btn {
+    padding: 0.75rem;
+    border-radius: 2rem;
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
   @keyframes fadeOut {
     from {

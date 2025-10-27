@@ -12,6 +12,7 @@ import { sideProject } from '../../interfaces/sideProject';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { FormsModule } from '@angular/forms';  // Asegúrate de importar FormsModule
+import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-menu',
   standalone: true,
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';  // Asegúrate de importar FormsMo
     MatIconModule,
     MatListModule,
     MatDividerModule,
-    FormsModule
+    FormsModule,
+    FooterComponent
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',

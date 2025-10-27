@@ -1,5 +1,7 @@
 <div class="d-flex">
-  <div class="d-flex flex-column align-items-center justify-content-center">
+  <div
+    class="d-flex flex-column align-items-center justify-content-center project-cont"
+  >
     <div class="w-75 d-flex flex-column">
       <h1 class="w-75">{{ this.project.name }}</h1>
 
@@ -21,7 +23,7 @@
           } @if (project.link !== '') {
           <a
             class="d-flex align-items-center justify-content-center"
-            href="{{ project.link }}"
+            href="{{ project?.serverSide?.linkRepository }}"
             target="_blank"
           >
             <mat-icon svgIcon="github" class="violet-icon"></mat-icon>
@@ -35,7 +37,7 @@
           <!--AAAAAAAAAAAAAAAAAAAAAAAAAAAA-->
           <a
             class="d-flex align-items-center justify-content-center"
-            href="{{ project.link }}"
+            href="{{ project?.linkRepository }}"
             target="_blank"
           >
             <mat-icon svgIcon="github" class="violet-icon"></mat-icon>
@@ -45,7 +47,10 @@
         }
       </div>
     </div>
-    <div class="w-75 mt-3">
+    <div
+      class="w-75 mt-3"
+      style="border-radius: 1rem 1rem 0 1rem; overflow: hidden"
+    >
       <mat-tab-group mat-stretch-tab>
         <mat-tab>
           <ng-template mat-tab-label> general </ng-template>
@@ -144,12 +149,12 @@
                     </i></mat-panel-title
                   >
                 </mat-expansion-panel-header>
-                  @if (project.technologies) {
-                  <app-technologies
-                    class="w-75"
-                    [technologies]="project?.serverSide?.technologies"
-                  ></app-technologies>
-                  }
+                @if (project.technologies) {
+                <app-technologies
+                  class="w-75"
+                  [technologies]="project?.serverSide?.technologies"
+                ></app-technologies>
+                }
                 <p class="pt-2">
                   {{ project?.serverSide?.description || "" | translate }}
                 </p>

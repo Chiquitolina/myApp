@@ -14,6 +14,7 @@
       >
         @for (project of projects; track project; let i = $index) {
         <mat-list-option
+        style="height: 3.25rem;"
           (click)="
             selectProject(project, i); toggleDetails(i); handleMenuButtonClick()
           "

@@ -15,7 +15,7 @@
     isFading !== null ? { 'fade-enter': !isFading, 'fade-leave': isFading } : ''
   "
 >
-  <div id="vanta-bg" style="width: 100%; height: 100vh; position: fixed"></div>
+  <div id="vanta-bg"></div>
   <div
     [ngClass]="currentThemeClass"
     class="container no-padding w-100 h-100 d-flex flex-column"
@@ -34,7 +34,7 @@
         (deselectAll)="onDeselectAll()"
       ></app-header>
       <app-drawing-text class="w-100" style="width: 100%"></app-drawing-text>
-      <div class="d-flex" style="overflow: auto; min-height: 70%">
+      <div class="cont">
         <div class="d-flex mid-card flex-wrap">
           <app-focus-light></app-focus-light>
           @if (!this.projectServ.showProjectDetails &&
@@ -48,11 +48,6 @@
             class="col-12 col-xl-12 col-md-12"
             (notifyApp)="handleNotification()"
           ></app-project-view>
-          } @else if (this.projectServ.selectedSide &&
-          !this.projectServ.showProjectDetails) {
-          <app-side-project
-            class="col-12 col-xl-12 col-md-12"
-          ></app-side-project>
           }
         </div>
         <app-menu
@@ -65,7 +60,7 @@
         ></app-menu>
       </div>
 
-      <app-footer style="min-height: 15%" class="footer"></app-footer>
+      <app-footer class="footer"></app-footer>
     </div>
   </div>
 </mat-drawer-container>

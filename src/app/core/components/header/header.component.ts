@@ -100,7 +100,6 @@ export class HeaderComponent {
         setTimeout(() => {
           const selectedLanguage = isEnglish ? 'en' : 'es';
           this.translateServ.changeLanguage(selectedLanguage);
-          console.log(selectedLanguage);
 
           // Una vez que el idioma ha cambiado, activa la animación de fade-in
           this.isFading = false;

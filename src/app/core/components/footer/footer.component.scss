@@ -1,3 +1,26 @@
+footer {
+  margin-right: 4rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
 div {
-    margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.div-int {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+
+  footer {
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  .div-int {
+    margin-top: 2rem;
+  }
 }

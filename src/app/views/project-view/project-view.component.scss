@@ -1,6 +1,6 @@
 mat-tab-group {
   min-width: 100%;
-  max-height: 18rem;
+  max-height: 17rem;
 }
 
 mat-panel-title {
@@ -13,7 +13,7 @@ mat-panel-title {
 }
 
 mat-expansion-panel {
-  width: 90%;
+  width: 100%;
   background-color: rgba(33, 37, 41, 0.5);
   color: whitesmoke;
 }
@@ -34,6 +34,10 @@ mat-icon {
   margin-right: 0.5rem;
 }
 
+h1 {
+  width: 75%;
+}
+
 img {
   margin-right: 0.5rem;
 }
@@ -42,19 +46,32 @@ a {
   font-size: 14px;
 }
 
-@media (max-width: 768px) {
+.w-xl-75 {
+  width: 75% !important;
+}
 
+@media (max-width: 768px) {
   mat-tab-group {
-    max-height: 23rem;
+    max-height: 27rem;
+    min-height: 27rem;
   }
 
   h1 {
     font-size: 2.25rem;
+    width: 100%;
+    font-weight: 600;
   }
 
   /* Cada tab tiene un ancho mínimo */
   ::ng-deep .mat-mdc-tab {
     max-width: 70px;
     /* opcional, para que no crezcan demasiado */
+  }
+
+  .project-cont {
+  }
+
+  .w-xl-75 {
+    width: 100% !important;
   }
 }

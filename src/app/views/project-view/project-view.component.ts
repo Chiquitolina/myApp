@@ -62,6 +62,8 @@ export class ProjectViewComponent {
       this.project = project;
       this.panels[0].content = project.clientSide?.description || '';
 
+      console.log(this.project);
+
       // 👇 Reinicia siempre al primer tab cuando cambia el proyecto
       setTimeout(() => {
         if (this.tabGroup) {
@@ -69,7 +71,6 @@ export class ProjectViewComponent {
         }
       });
 
-      console.log(project);
     }
   });
 }
@@ -79,7 +80,6 @@ export class ProjectViewComponent {
   }
 
   handleMenuButtonClick() {
-    console.log('Menu button clicked in ProjectView');
     this.notifyApp.emit(); // Emite el evento hacia el componente padre
   }
 }

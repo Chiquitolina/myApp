@@ -1,7 +1,11 @@
 .menu-btn {
-  margin-left: 0.25rem; 
+  margin-left: 0.25rem;
   color: #212529;
   box-shadow: none;
+}
+
+.cont-head {
+  width: 75%;
 }
 
 .back {
@@ -9,7 +13,10 @@
 }
 
 @media (max-width: 768px) {
+  .cont-head {
+    width: 100%;
+  }
   .back {
-      display: none;
+    display: none;
   }
 }

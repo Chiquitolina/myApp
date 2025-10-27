@@ -45,7 +45,6 @@ export class HomeViewComponent implements OnInit {
 
   ngOnInit() {
     const hasAnimated = this.animateService.hasAnimated(this.animationKey);
-    console.log('Has animado?', hasAnimated);
 
     if (!hasAnimated) {
       // primera vez → disparar animación

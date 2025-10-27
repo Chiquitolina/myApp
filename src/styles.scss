@@ -34,17 +34,14 @@ a {
   }
 
   // 👇 acá va el mixin, scoped a .theme-dark
-  @include mat.tabs-overrides(
-    (
-      active-label-text-color: whitesmoke,
+  @include mat.tabs-overrides((active-label-text-color: whitesmoke,
       active-focus-label-text-color: whitesmoke,
       // 👈 fuerza mismo color que active
       inactive-label-text-color: rgb(100, 99, 99),
       active-hover-label-text-color: red,
       active-indicator-color: #1976d2,
       divider-color: transparent,
-    )
-  );
+    ));
 
   .mat-button-toggle-checked {
     background-color: whitesmoke !important;
@@ -85,12 +82,10 @@ a {
   }
 
   .focus {
-    background: radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.075) 0%,
-      rgba(255, 255, 255, 0.025) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
+    background: radial-gradient(circle,
+        rgba(255, 255, 255, 0.075) 0%,
+        rgba(255, 255, 255, 0.025) 50%,
+        rgba(255, 255, 255, 0) 100%);
   }
 
   .cardd {
@@ -105,7 +100,7 @@ a {
   /* Color de texto para el tema claro */
 
   mat-drawer {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.98);
     border: 2px solid #c4c4c4;
     color: #000000;
     /* Color de texto para el tema claro */
@@ -142,16 +137,14 @@ a {
   }
 
   .focus {
-    background: radial-gradient(
-      circle,
-      rgba(0, 0, 0, 0.075) 0%,
-      rgba(0, 0, 0, 0.025) 50%,
-      rgba(0, 0, 0, 0) 100%
-    );
+    background: radial-gradient(circle,
+        rgba(0, 0, 0, 0.075) 0%,
+        rgba(0, 0, 0, 0.025) 50%,
+        rgba(0, 0, 0, 0) 100%);
   }
 
   .cardd {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.75);
   }
 }
 
@@ -225,8 +218,7 @@ body {
 
 @media (max-width: 768px) {
   .theme-dark {
-    .cardd {
-    }
+    .cardd {}
 
     .back {
       border: 1px solid white;
@@ -235,7 +227,7 @@ body {
 
   .theme-light {
     .back {
-      border: 1px solid white;
+      border: 1px solid black;
     }
   }
 }

@@ -25,11 +25,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MenuComponent } from './core/components/menu/menu.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
-import { SideProjectComponent } from './views/side-project/side-project.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { BackgroundComponent } from './shared/components/background/background.component';
 import { DrawingTextComponent } from './components/drawing-text/drawing-text.component';
 import { AnimateService } from './core/services/init-animation/animate.service';
+import { VantaService } from './core/services/vanta/vanta.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -47,7 +48,6 @@ import { AnimateService } from './core/services/init-animation/animate.service';
     MenuComponent,
     MatSidenavModule,
     MatIconModule,
-    SideProjectComponent,
     SidebarComponent,
     BackgroundComponent,
     DrawingTextComponent,
@@ -66,6 +66,10 @@ export class AppComponent {
   private cdr = inject(ChangeDetectorRef);
   translateServ = inject(TranslationService);
   animateServ = inject(AnimateService);
+  vantaServ = inject(VantaService);
+
+  private subs = new Subscription();
+  private initialized = false;
 
   projects: Project[] = [];
   isFlipped = false;
@@ -80,26 +84,31 @@ export class AppComponent {
 
   @HostBinding('class') className = '';
 
-  ngOnInit(): void {
+   ngOnInit(): void {
     const hasAnimated = this.animateServ.hasAnimated(this.animationKey);
-    console.log('Has animado?', hasAnimated);
 
     if (!hasAnimated) {
-      // primera vez → disparar animación
       this.animateContainer = true;
     } else {
-      // ya se animó → mantener visible
       this.hasAnimatedClass = true;
     }
 
-    this.themeServ.darkMode$.subscribe((isDarkMode) => {
-      this.currentThemeClass = isDarkMode ? 'theme-dark' : 'theme-light';
-      this.cdr.detectChanges(); // Fuerza a Angular a detectar cambios después de actualizar la propiedad
-    });
+    // 🔄 Suscribimos al cambio de tema
+    this.subs.add(
+      this.themeServ.darkMode$.subscribe((isDarkMode) => {
+        this.currentThemeClass = isDarkMode ? 'theme-dark' : 'theme-light';
+        this.vantaServ.updateBackground(isDarkMode); // ← cambia color de Vanta dinámicamente
+        this.cdr.detectChanges();
+      })
+    );
 
     this.projectServ.getProjects().subscribe((projects) => {
       this.projects = projects;
     });
+  }
+  // ✅ Inicializa Vanta al tener disponible el DOM
+  ngAfterViewInit(): void {
+    this.vantaServ.initVanta();
   }
 
   flipCard(): void {
@@ -152,4 +161,9 @@ export class AppComponent {
       this.hasAnimatedClass = true;
     }
   }
+  ngOnDestroy(): void {
+    this.vantaServ.destroyVanta();
+    this.subs.unsubscribe();
+  }
+
 }
