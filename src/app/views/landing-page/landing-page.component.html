@@ -9,6 +9,11 @@
         <a routerLink="/portfolio" class="btn btn-primary">{{ t.explore }} <span aria-hidden="true">↗</span></a>
         <a [href]="linkedInProfile" target="_blank" rel="noopener noreferrer" class="btn btn-outline">{{ t.profile }} <span aria-hidden="true">↗</span></a>
       </div>
+      <div class="hero-secondary-action">
+        <a [href]="cvUrl" target="_blank" rel="noopener noreferrer" class="btn btn-cv">
+          {{ t.downloadCV }} <span aria-hidden="true">↓</span>
+        </a>
+      </div>
     </section>
 
     <section class="publications" aria-labelledby="posts-title">

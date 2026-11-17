@@ -30,8 +30,6 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
   private readonly translateService = inject(TranslateService);
   private readonly subscriptions = new Subscription();
 
-  readonly cvUrl = 'https://drive.google.com/uc?export=download&id=16cPJpRkdbZ2zZnTIlM07lLey6zrpdxwV';
-
   projects: Project[] = [];
   selectedProject: Project | null = null;
   dark = true;
@@ -43,7 +41,6 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
       title: 'Portfolio',
       introduction: 'Una selección de proyectos de software, experimentos y productos donde aplico, exploro y comparto lo que aprendo.',
       explore: 'Explorar proyectos',
-      downloadCV: 'Descargar CV',
       projectList: 'Proyectos',
       openProject: 'Ver proyecto',
       rights: 'Todos los derechos reservados',
@@ -53,7 +50,6 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
       title: 'Portfolio',
       introduction: 'A selection of software projects, experiments, and products where I apply, explore, and share what I learn.',
       explore: 'Explore projects',
-      downloadCV: 'Download CV',
       projectList: 'Projects',
       openProject: 'View project',
       rights: 'All rights reserved',

@@ -53,6 +53,10 @@ h1 { overflow-wrap: anywhere; font-size: clamp(2rem, 4.6vw, 3.75rem); line-heigh
 .btn:hover { transform: translateY(-2px); }
 .btn-primary { background: var(--text); color: var(--surface); }
 .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--muted); }
+/* Acción secundaria en su propia fila, debajo de Portfolio y LinkedIn. */
+.hero-secondary-action { display: flex; margin-top: 12px; }
+.btn-cv { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+.btn-cv:hover { color: var(--text); border-color: var(--muted); }
 .publications { padding-top: 22px; border-top: 1px solid var(--border); }
 .section-heading { min-width: 0; flex-wrap: wrap; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
 h2 { overflow-wrap: anywhere; font-size: clamp(1.12rem, 2vw, 1.4rem); letter-spacing: -.02em; font-weight: 700; margin: 0; }

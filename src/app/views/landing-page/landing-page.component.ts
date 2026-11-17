@@ -24,6 +24,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   private http = inject(HttpClient);
 
   readonly linkedInProfile = 'https://www.linkedin.com/in/alejandro-ignacio-godino/';
+  readonly cvUrl = 'https://drive.google.com/uc?export=download&id=16cPJpRkdbZ2zZnTIlM07lLey6zrpdxwV';
   posts: LinkedInPostCard[] = [];
   showAll = false;
   postsLoadError = false;
@@ -45,8 +46,8 @@ export class LandingPageComponent implements OnInit, OnDestroy {
       navHome: 'Inicio', navPortfolio: 'Portfolio',
       eyebrow: 'TECNOLOGÍA · CIENCIA',
       title: 'Ideas, proyectos y aprendizajes.',
-      lead: 'Desarrollo, investigación y aprendizaje en software.',
-      explore: 'Explorar portfolio', profile: 'Mi LinkedIn', posts: 'Últimas publicaciones',
+      lead: 'Desarrollo, investigación y aprendizaje en el mundo del software.',
+      explore: 'Explorar portfolio', profile: 'Mi LinkedIn', downloadCV: 'Descargar CV', posts: 'Últimas publicaciones',
       demo: 'Ejemplo de tarjeta', disclaimer: 'Boceto inicial: reemplazá estas tarjetas por tus publicaciones reales de LinkedIn.',
       published: 'Publicado', rights: 'Todos los derechos reservados',
       theme: 'Cambiar tema',
@@ -58,7 +59,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
       eyebrow: 'SOFTWARE · TECHNOLOGY · SCIENCE',
       title: 'Ideas, projects, and lessons learned.',
       lead: 'I share what I build, research, and learn in the world of software.',
-      explore: 'Explore portfolio', profile: 'My LinkedIn', posts: 'Latest posts',
+      explore: 'Explore portfolio', profile: 'My LinkedIn', downloadCV: 'Download CV', posts: 'Latest posts',
       demo: 'Sample card', disclaimer: 'Initial mockup: replace these cards with your actual LinkedIn posts.',
       published: 'Published', rights: 'All rights reserved',
       theme: 'Switch theme',

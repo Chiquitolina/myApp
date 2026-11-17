@@ -221,12 +221,7 @@ app-root {
   animation-duration: 350ms;
   animation-timing-function: ease-in-out;
 }
-/* Navegadores sin View Transitions: entrada discreta, sin interrumpir el routing. */
-@supports not (view-transition-name: root) {
-  app-landing-page, app-portfolio-page {
-    animation: ag-route-in 340ms ease-out both;
-  }
-}
+/* Sin View Transitions, la navegación se realiza sin animación adicional. */
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root), ::view-transition-new(root),
   ::view-transition-old(ag-navigation), ::view-transition-new(ag-navigation) {
