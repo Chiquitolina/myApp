@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { sideProject } from '../../interfaces/sideProject';
 import {MatListModule} from '@angular/material/list';
 import {MatDividerModule} from '@angular/material/divider';
+import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';  // Asegúrate de importar FormsModule
 
 
@@ -33,6 +34,7 @@ import { FormsModule } from '@angular/forms';  // Asegúrate de importar FormsMo
 })
 export class MenuComponent {
   @Output() notifyApp = new EventEmitter<void>();
+  private readonly subscriptions = new Subscription();
 
   projects: Project[] = [];
   currentThemeClass: string = '';
@@ -46,7 +48,7 @@ export class MenuComponent {
   private themeServ = inject(ThemeService);
 
   ngOnInit() {
-    this.projectServ.getProjects().subscribe({
+    this.subscriptions.add(this.projectServ.getProjects().subscribe({
       next: (data) => {
         this.projects = data; // Esto es el 'next'
       },
@@ -54,12 +56,14 @@ export class MenuComponent {
         console.error('Error:', error); // Esto es el 'error'
       },
       complete: () => {},
-    });
+    }));
 
-    this.themeServ.darkMode$.subscribe((isDarkMode) => {
+    this.subscriptions.add(this.themeServ.darkMode$.subscribe((isDarkMode) => {
       this.currentThemeClass = isDarkMode ? 'theme-dark' : 'theme-light';
-    });
+    }));
   }
+
+  ngOnDestroy(): void { this.subscriptions.unsubscribe(); }
 
   selectProject(project: Project, index: number) {
     this.projectServ.selectProject(project);

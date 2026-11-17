@@ -1,7 +1,28 @@
-
-@media (max-width: 768px) {
-  .back {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
+:host { display: block; width: 100%; min-width: 0; }
+.portfolio-subnav { display: flex; align-items: center; padding-top: 10px; }
+.portfolio-back, .mobile-projects-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: inherit; font-size: .86rem; color: inherit;
+  border: 1px solid rgba(150, 158, 168, .48);
+  background: transparent;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: transform .2s ease, background-color .2s ease;
+}
+.portfolio-back:hover, .mobile-projects-button:hover {
+  transform: translateY(-2px);
+  background-color: rgba(150,158,168,.13);
+}
+.portfolio-back:focus-visible, .mobile-projects-button:focus-visible {
+  outline: 2px solid currentColor; outline-offset: 3px;
+}
+.mobile-projects-button { display: none; }
+@media (max-width: 767px) {
+  .mobile-projects-button { display: inline-flex; margin-top: 12px; }
+  .portfolio-subnav { display: inline-flex; margin-right: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-back, .mobile-projects-button { transition: none; }
+  .portfolio-back:hover, .mobile-projects-button:hover { transform: none; }
 }

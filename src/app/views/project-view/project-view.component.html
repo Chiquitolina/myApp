@@ -1,35 +1,86 @@
-<div class="d-flex">
-  <div class="d-flex flex-column align-items-center justify-content-center">
-    <div
-      class="w-75 d-flex flex-wrap justify-content-between align-items-center"
-    >
-      <h3 class="w-75">{{ this.project.name }}</h3>
-      <div class="d-flex flex-column">
-        <div class="d-flex align-items-center">
-          <!--
-  <app-url-health-monitor [url]="'{{project.link}}'"  [showText]="true" [showStatus]="true"></app-url-health-monitor> -->
-          @if (project.link !== '') {
-          <a href="{{ project.link }}" target="_blank">{{
-            "TEST_APP" | translate
-          }}</a>
+@if (project; as current) {
+  <div class="project-detail-layout">
+    <article class="project-content">
+      <a class="back-link" routerLink="/portfolio">
+        <span aria-hidden="true">←</span> {{ t.back }}
+      </a>
 
+      <header class="project-intro">
+        <span class="project-eyebrow">{{ category }}</span>
+        <h1>{{ current.name }}</h1>
+        <p class="project-description">{{ current.description | translate }}</p>
+
+        @if (highlights.length > 0) {
+          <section class="highlights" [attr.aria-label]="t.highlights">
+            @for (highlight of highlights; track highlight) {
+              <div class="highlight">
+                <span class="highlight-check" aria-hidden="true">✓</span>
+                <span>{{ highlight }}</span>
+              </div>
+            }
+          </section>
+        }
+
+        <div class="project-actions">
+          @if (appUrl; as url) {
+            <a class="action action-primary" [href]="url" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">↗</span> {{ t.visitApp }}
+            </a>
+          }
+          @if (repositoryUrl; as url) {
+            <a class="action action-outline" [href]="url" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">⌘</span> {{ t.repository }}
+            </a>
           }
         </div>
-        @if (project.linkRepository) {
-        <a href="{{ project.linkRepository }}" target="_blank">
-          {{ "GO_REPOSITORY" | translate }}</a
-        >
+      </header>
+
+      <div class="detail-divider" aria-hidden="true"></div>
+
+      <section class="technologies-section" [attr.aria-label]="t.technologies">
+        <h2>{{ t.technologies }}</h2>
+        @if (technologyNames.length > 0) {
+          <div class="technology-tags">
+            @for (tech of technologyNames; track tech) {
+              <span class="technology-tag">{{ tech }}</span>
+            }
+          </div>
         }
-      </div>
-    </div>
-    <p class="w-75">
-      {{ project.description | translate }}
-    </p>
-    @if (project.technologies) {
-    <app-technologies
-      class="w-75"
-      [technologies]="project.technologies"
-    ></app-technologies>
-    }
+      </section>
+
+      @if (architectureParts.length > 0) {
+        <section class="architecture-section" [attr.aria-label]="t.architecture">
+          <h2>{{ t.architecture }}</h2>
+          <div class="architecture-grid">
+            @for (part of architectureParts; track part.key) {
+              <article class="architecture-card">
+                <span class="architecture-kind">{{ part.label }}</span>
+                <h3>{{ part.value.side }}</h3>
+                <p>{{ part.value.description | translate }}</p>
+                @if (safeUrl(part.value.linkRepository); as url) {
+                  <a [href]="url" target="_blank" rel="noopener noreferrer">
+                    {{ t.openCode }} <span aria-hidden="true">↗</span>
+                  </a>
+                }
+              </article>
+            }
+          </div>
+        </section>
+      }
+    </article>
+
+    <aside class="project-sidebar" [attr.aria-label]="t.projects">
+      <h2>{{ t.projects }}</h2>
+      <nav class="project-nav" [attr.aria-label]="t.projects">
+        @for (item of projects; track item.id) {
+          <a [routerLink]="['/project', item.id]" class="project-nav-link"
+             [class.active]="item.id === current.id"
+             [attr.aria-current]="item.id === current.id ? 'page' : null">
+            <span class="project-nav-title">{{ item.name }}</span>
+            <span class="project-nav-indicator" aria-hidden="true"></span>
+          </a>
+        }
+      </nav>
+    </aside>
   </div>
-</div>
+}

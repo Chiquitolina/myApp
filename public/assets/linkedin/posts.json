@@ -1,0 +1,59 @@
+[
+  {
+    "id": "7508308045979021312",
+    "title": {
+      "es": "De varias estrategias a una arquitectura de microservicios",
+      "en": "From multiple strategies to a microservices architecture"
+    },
+    "description": {
+      "es": "Cómo centralicé los datos de Binance Futures mediante un Market Data Service, Redis y WebSockets para experimentar con estrategias sobre información consistente.",
+      "en": "How I centralized Binance Futures data with a Market Data Service, Redis, and WebSockets to test strategies against consistent data."
+    },
+    "category": {
+      "es": "ARQUITECTURA",
+      "en": "ARCHITECTURE"
+    },
+    "publishedAt": "2026-09-23",
+    "imageUrl": "https://data-image.sociablekit.com/sources/linkedin-profile-posts/alejandro-ignacio-godino/7508308045979021312-thumbnail.webp?nocache=1794870280",
+    "linkedInUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7508308045979021312/",
+    "example": false
+  },
+  {
+    "id": "7490544105597485056",
+    "title": {
+      "es": "Crypto Quant System: investigando compresiones",
+      "en": "Crypto Quant System: researching compressions"
+    },
+    "description": {
+      "es": "La evolución desde indicadores multi-timeframe hacia la detección y seguimiento de compresiones, con contexto de mercado y una máquina de estados.",
+      "en": "Moving from multi-timeframe indicators to detecting and tracking compressions, using market context and a state machine."
+    },
+    "category": {
+      "es": "INVESTIGACIÓN",
+      "en": "RESEARCH"
+    },
+    "publishedAt": "2026-08-05",
+    "imageUrl": "https://data-image.sociablekit.com/sources/linkedin-profile-posts/alejandro-ignacio-godino/7490544105597485056-thumbnail.webp?nocache=1794870280",
+    "linkedInUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7490544105597485056/",
+    "example": false
+  },
+  {
+    "id": "7459684607681024000",
+    "title": {
+      "es": "De backtesting a live trading en Python",
+      "en": "From backtesting to live trading in Python"
+    },
+    "description": {
+      "es": "Un recorrido por la arquitectura modular del sistema: datos, señales, gestión de riesgo, ejecución y dashboard en tiempo real.",
+      "en": "An overview of the modular trading system: market data, signals, risk management, execution, and a real-time dashboard."
+    },
+    "category": {
+      "es": "DESARROLLO",
+      "en": "DEVELOPMENT"
+    },
+    "publishedAt": "2026-05-12",
+    "imageUrl": "https://data-image.sociablekit.com/sources/linkedin-profile-posts/alejandro-ignacio-godino/7459684607681024000-thumbnail.webp?nocache=1794870280",
+    "linkedInUrl": "https://www.linkedin.com/feed/update/urn:li:activity:7459684607681024000/",
+    "example": false
+  }
+]

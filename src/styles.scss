@@ -131,8 +131,10 @@ a {
 
 body {
   font-family: "Montserrat", sans-serif;
-  width: 100vw;
-  height: 100vh;
+  /* 100vw incluye el ancho de la barra vertical y provoca desborde horizontal. */
+  width: 100%;
+  min-width: 0;
+  height: 100%;
   background-color: var(--background-color); /* Usar variable para el fondo */
 }
 
@@ -145,7 +147,20 @@ body {
 
 html,
 body {
+  width: 100%;
+  max-width: 100%;
   height: 100%;
+}
+
+/* Red de seguridad para animaciones temporales, no reemplaza las correcciones de tamaño. */
+html {
+  overflow-x: clip;
+}
+
+app-root {
+  display: block;
+  width: 100%;
+  min-width: 0;
 }
 
 *::-webkit-scrollbar {
@@ -184,4 +199,38 @@ body {
   100% {
     filter: brightness(1);
   }
+}
+
+/* Navegación Inicio ↔ Portfolio: transición nativa de Angular Router + View Transitions.
+   Se anima la página y se mantiene el encabezado como elemento compartido. */
+@keyframes ag-route-out {
+  to { opacity: 0; transform: translateY(-10px) scale(.992); filter: blur(2px); }
+}
+@keyframes ag-route-in {
+  from { opacity: 0; transform: translateY(16px) scale(.985); filter: blur(3px); }
+  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+::view-transition-old(root) {
+  animation: ag-route-out 280ms ease-in both;
+}
+::view-transition-new(root) {
+  animation: ag-route-in 470ms cubic-bezier(.22, 1, .36, 1) both;
+}
+::view-transition-old(ag-navigation),
+::view-transition-new(ag-navigation) {
+  animation-duration: 350ms;
+  animation-timing-function: ease-in-out;
+}
+/* Navegadores sin View Transitions: entrada discreta, sin interrumpir el routing. */
+@supports not (view-transition-name: root) {
+  app-landing-page, app-portfolio-page {
+    animation: ag-route-in 340ms ease-out both;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root),
+  ::view-transition-old(ag-navigation), ::view-transition-new(ag-navigation) {
+    animation-duration: .01ms !important;
+  }
+  app-landing-page, app-portfolio-page { animation: none !important; }
 }

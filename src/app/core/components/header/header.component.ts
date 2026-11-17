@@ -1,149 +1,47 @@
-import {
-  Component,
-  Output,
-  EventEmitter,
-  inject,
-  signal,
-  HostBinding,
-} from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { ProjectsService } from '../../services/projects/projects.service';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { Observable, Subscription } from 'rxjs';
-import { ThemeService } from '../../services/theme/theme.service';
-import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, OnDestroy, OnInit, Output, inject } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { SidebarModule } from 'primeng/sidebar';
-import { ButtonModule } from 'primeng/button';
+import { Subscription } from 'rxjs';
+import { ProjectsService } from '../../services/projects/projects.service';
 import { sideProject } from '../../interfaces/sideProject';
-import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { TranslationService } from '../../services/translation/translation.service';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { SiteHeaderComponent } from '../../../shared/components/site-header/site-header.component';
 
+/** Encabezado del Portfolio. Reutiliza exactamente los controles del Inicio. */
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [
-    RouterLink,
-    MatSlideToggleModule,
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    MatButtonToggleModule,
-    TranslateModule,
-    MatIconModule,
-    MatButtonModule,
-    SidebarModule,
-    ButtonModule,
-  ],
+  imports: [SiteHeaderComponent, TranslateModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   @Output() notifyApp = new EventEmitter<void>();
   @Output() toggleSidenav = new EventEmitter<void>();
-
-  @Output() fadeStatusChange = new EventEmitter<boolean>();
+  @Output() fadeStatusChange = new EventEmitter<boolean>(); // Compatibilidad con PortfolioPage
   @Output() deselectAll = new EventEmitter<void>();
 
-  hideSingleSelectionIndicator = signal(false);
+  readonly projectServ = inject(ProjectsService);
+  private readonly subscriptions = new Subscription();
+  sideProject: sideProject | null = null;
 
-  private themeSubscription!: Subscription;
-  currentThemeClass = '';
-
-  sidebarVisible: boolean = false;
-
-  _projectServ = inject(ProjectsService);
-  themeServ = inject(ThemeService);
-  translateServ = inject(TranslationService);
-
-  sideProject$: Observable<sideProject | null>;
-  sideProject!: sideProject | null;
-
-  toggleControl = new FormControl(true);
-  translateToggleControl = new FormControl(false);
-
-  isFading: boolean | null = null; // Cambiado a null inicialmente
-
-  constructor() {
-    this.sideProject$ = this._projectServ.selectedSide$; // Asigna el observable
+  get hasOpenProject(): boolean {
+    return this.projectServ.showProjectDetails || this.sideProject !== null;
   }
 
   ngOnInit(): void {
-    this.themeServ.darkMode$.subscribe((isDarkMode) => {
-      this.currentThemeClass = isDarkMode ? 'theme-dark' : 'theme-light';
-    });
-
-    this.sideProject$.subscribe((project) => {
-      if (project) {
-        this.sideProject = project;
-      }
-    });
-
-    // Actualiza el tema según el valor inicial del toggle
-    this.themeServ.setDarkMode(this.toggleControl.value ?? false);
-
-    // Suscripción al cambio de valor en el toggle
-    this.toggleControl.valueChanges.subscribe((darkMode) => {
-      this.themeServ.setDarkMode(darkMode ?? false);
-    });
-
-    this.translateToggleControl.valueChanges.subscribe(
-      (isEnglish: boolean | null) => {
-        // Antes de cambiar el idioma, activa la animación de fade-out
-        this.isFading = true; // Suponiendo que tienes la propiedad isFading para manejar la animación
-        this.fadeStatusChange.emit(this.isFading);
-
-        // Después de un tiempo (durante la animación), cambia el idioma
-        setTimeout(() => {
-          const selectedLanguage = isEnglish ? 'en' : 'es';
-          this.translateServ.changeLanguage(selectedLanguage);
-          console.log(selectedLanguage);
-
-          // Una vez que el idioma ha cambiado, activa la animación de fade-in
-          this.isFading = false;
-          this.fadeStatusChange.emit(this.isFading);
-        }, 500); // Ajusta el tiempo según la duración de tu animación (en milisegundos)
-      }
-    );
+    this.subscriptions.add(this.projectServ.selectedSide$.subscribe(project => {
+      this.sideProject = project;
+    }));
   }
 
-  toggleSingleSelectionIndicator() {
-    this.hideSingleSelectionIndicator.update((value) => !value);
-  }
+  ngOnDestroy(): void { this.subscriptions.unsubscribe(); }
 
-  onLanguageChange(isEnglish: boolean): void {
-    this.translateToggleControl.setValue(isEnglish); // Actualiza el FormControl
-  }
-
-  // Manejo del cambio en el mat-button-toggle-group
-  onToggleChange(darkMode: boolean): void {
-    this.toggleControl.setValue(darkMode); // Actualiza el FormControl
-  }
-
-  ngOnDestroy(): void {
-    // Limpiar suscripción al destruir el componente
-    this.themeSubscription.unsubscribe();
-  }
-
-  handleMenuButtonClick() {
+  goBack(): void {
+    this.projectServ.showProjectDetails = false;
+    this.projectServ.selectedSide.next(null);
+    this.sideProject = null;
+    this.deselectAll.emit();
     this.notifyApp.emit();
   }
 
-  goBack() {
-    this._projectServ.showProjectDetails = false;
-    this._projectServ.selectedSide.next(null);
-    this.sideProject = null;
-    this.onDeselectAll();
-  }
-
-  onMenuButtonClick() {
-    this.toggleSidenav.emit(); // Emite el evento cuando se hace clic
-  }
-
-  onDeselectAll() {
-    this.deselectAll.emit(); // Emite el evento cuando el botón es presionado
-  }
+  onMenuButtonClick(): void { this.toggleSidenav.emit(); }
 }

@@ -1,0 +1,55 @@
+<div class="landing-screen" [class.theme-dark]="dark" [class.theme-light]="!dark">
+  <main class="landing-shell">
+    <app-site-header></app-site-header>
+
+    <section class="hero" aria-labelledby="intro-title">
+      <span class="eyebrow">{{ t.eyebrow }}</span>
+      <p>{{ t.lead }}</p>
+      <div class="hero-actions">
+        <a routerLink="/portfolio" class="btn btn-primary">{{ t.explore }} <span aria-hidden="true">↗</span></a>
+        <a [href]="linkedInProfile" target="_blank" rel="noopener noreferrer" class="btn btn-outline">{{ t.profile }} <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="publications" aria-labelledby="posts-title">
+      <div class="section-heading">
+        <h2 id="posts-title">{{ t.posts }}</h2>
+        <span>LinkedIn</span>
+      </div>
+      <div class="posts-grid">
+        @for (post of visiblePosts; track post.id) {
+          <article class="post-card">
+            <div class="post-cover">
+              @if (post.imageUrl) {
+                <img [src]="post.imageUrl" [alt]="localize(post.title)" loading="lazy" (error)="hideBrokenImage($event)" />
+              } @else if (post.icon === 'book') {
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 7.5c-2-1.5-5-2-9-1.8v12c4-.2 7 .3 9 1.8m0-12c2-1.5 5-2 9-1.8v12c-4-.2-7 .3-9 1.8m0-12v12"/></svg>
+              } @else {
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14"/></svg>
+              }
+            </div>
+            <div class="post-info">
+              <span class="post-category">{{ localize(post.category) }}</span>
+              <h3>{{ localize(post.title) }}</h3>
+              <p>{{ localize(post.description) }}</p>
+              <div class="post-footer">
+                <span>{{ post.example ? t.demo : (t.published + ': ' + formatDate(post.publishedAt)) }}</span>
+                @if (post.linkedInUrl && !post.example) {
+                  <a [href]="post.linkedInUrl" target="_blank" rel="noopener noreferrer" [attr.aria-label]="localize(post.title) + ' — LinkedIn'">↗</a>
+                }
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+      @if (postsLoadError) { <p class="demo-disclaimer" role="status">{{ t.loadingError }}</p> }
+      @if (posts.length > 3) {
+        <div class="posts-more">
+          <button type="button" class="btn btn-outline" (click)="toggleAllPosts()"
+             [attr.aria-expanded]="showAll">{{ showAll ? t.showLess : t.seeAll }} <span aria-hidden="true">→</span></button>
+        </div>
+      }
+    </section>
+    <footer>© {{ 2026 }} · AG / Portfolio</footer>
+  </main>
+</div>
