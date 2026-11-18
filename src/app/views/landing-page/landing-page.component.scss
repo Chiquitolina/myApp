@@ -99,3 +99,72 @@ footer { padding-top: 28px; margin-top: auto; text-align: center; color: var(--h
 /* VANTA.NET vive en app-root: el shell semiopaco deja ver sutilmente
    las líneas, mientras el fondo completo ocupa también los márgenes. */
 .landing-shell { position: relative; isolation: isolate; }
+
+
+/* Estilo unificado de botones del Inicio */
+.landing-screen {
+
+  .btn {
+    border: 1px solid var(--text);
+    border-radius: 999px;
+    box-shadow: none;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  /* Explorar portfolio */
+  .btn.btn-primary {
+    background: var(--text);
+    color: var(--surface);
+    border-color: var(--text);
+    box-shadow: none;
+
+    &:hover,
+    &:active {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--text);
+      box-shadow: none;
+    }
+  }
+
+  /* LinkedIn, Descargar CV y Ver todas */
+  .btn.btn-outline,
+  .btn.btn-cv {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--text);
+
+    &:hover,
+    &:active {
+      background: var(--text);
+      color: var(--surface);
+      border-color: var(--text);
+    }
+  }
+
+  /* Indicador accesible sin azul Bootstrap */
+  .btn:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 3px;
+    box-shadow: none;
+  }
+}
+
+.landing-screen {
+  .btn-cv {
+    width: 10rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-outline {
+    width: 10rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

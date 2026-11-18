@@ -102,3 +102,56 @@
   .theme-button, .language-control button { transition: none; }
   .theme-button:hover { transform: none; }
 }
+
+
+/* Header responsive: dos columnas del 50% */
+@media (max-width: 767.98px) {
+
+  .site-header {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    gap: 0 !important;
+    padding-bottom: 18px;
+  }
+
+  /* Logo a la izquierda y controles a la derecha */
+  .site-header > .brand,
+  .site-header > .header-actions {
+    flex: 0 0 50%;
+    width: 50%;
+    max-width: 50%;
+    min-width: 0;
+  }
+
+  .site-header > .brand {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  /* Preferencias arriba, navegación debajo */
+  .site-header > .header-actions {
+    display: flex !important;
+    flex-direction: column-reverse !important;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+  }
+
+  .site-header .header-preferences {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px !important;
+  }
+
+  .site-header .main-nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 12px !important;
+  }
+}
