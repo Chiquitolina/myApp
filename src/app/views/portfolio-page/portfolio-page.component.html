@@ -21,10 +21,11 @@
               <div class="card-topline">
                 <span class="project-icon" aria-hidden="true">
                   @switch (project.id) {
+                    @case (6) { <span>⌁</span> }
+                    @case (7) { <span>▣</span> }
                     @case (0) { <span>▤</span> }
                     @case (1) { <span>◇</span> }
                     @case (2) { <span>▦</span> }
-                    @case (3) { <span>▧</span> }
                     @case (4) { <span>⌘</span> }
                     @default { <span>〈/〉</span> }
                   }
@@ -33,7 +34,7 @@
               </div>
               <h2>{{ project.name }}</h2>
               <span class="card-category">{{ category(project) }}</span>
-              <p>{{ project.description | translate }}</p>
+              <p>{{ project.descriptionEn ? (language === 'en' ? project.descriptionEn : project.description) : (project.description | translate) }}</p>
             </a>
           }
         </div>

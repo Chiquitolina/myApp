@@ -86,10 +86,11 @@ export class PortfolioPageComponent implements OnInit, OnDestroy {
 
   category(project: Project): string {
     const labels: Record<number, { es: string; en: string }> = {
+      6: { es: 'TRADING CUANTITATIVO · PYTHON', en: 'QUANTITATIVE TRADING · PYTHON' },
+      7: { es: 'PUNTO DE VENTA · ANGULAR', en: 'POINT OF SALE · ANGULAR' },
       0: { es: 'BLOG · DESARROLLO', en: 'BLOG · DEVELOPMENT' },
       1: { es: 'AUTENTICACIÓN · WEB', en: 'AUTHENTICATION · WEB' },
       2: { es: 'E-COMMERCE · FULL STACK', en: 'E-COMMERCE · FULL STACK' },
-      3: { es: 'PRODUCTIVIDAD · WEB', en: 'PRODUCTIVITY · WEB' },
       4: { es: 'API · BACKEND', en: 'API · BACKEND' },
       5: { es: 'PORTFOLIO · ANGULAR', en: 'PORTFOLIO · ANGULAR' },
     };

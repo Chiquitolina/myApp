@@ -49,6 +49,14 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
   };
 
   private readonly featureCopy: Record<number, { es: string[]; en: string[] }> = {
+    6: {
+      es: ['Datos de mercado compartidos entre estrategias', 'Estudio de estructuras y señales multi-timeframe', 'Evaluación experimental de estrategias'],
+      en: ['Shared market data across strategies', 'Multi-timeframe structure and signal research', 'Experimental strategy evaluation'],
+    },
+    7: {
+      es: ['Catálogo por unidad y por caja', 'Gestión de productos y pedidos', 'Análisis de ventas por día, hora y producto'],
+      en: ['Single-unit and box-based catalog', 'Product and order management', 'Sales analysis by day, hour, and product'],
+    },
     0: {
       es: ['Bitácora de desarrollo y aprendizaje', 'Aplicación web', 'Componentes de cliente y servidor'],
       en: ['Development and learning journal', 'Web application', 'Client and server components'],
@@ -60,10 +68,6 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
     2: {
       es: ['Experiencia de compra', 'Gestión de productos y pedidos', 'Herramientas de administración y análisis'],
       en: ['Shopping experience', 'Product and order management', 'Administration and analytics tools'],
-    },
-    3: {
-      es: ['Organización de actividades', 'Aplicación web con Angular'],
-      en: ['Activity organization', 'Angular web application'],
     },
     4: {
       es: ['Gestión de jugadores mediante CRUD', 'Formación de equipos según habilidades', 'Acciones protegidas mediante Bearer Token'],
@@ -84,10 +88,11 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
   get category(): string {
     if (!this.project) return this.t.projectType;
     const categories: Record<number, Localized> = {
+      6: { es: 'TRADING CUANTITATIVO · PYTHON', en: 'QUANTITATIVE TRADING · PYTHON' },
+      7: { es: 'PUNTO DE VENTA · ANGULAR', en: 'POINT OF SALE · ANGULAR' },
       0: { es: 'BLOG · DESARROLLO', en: 'BLOG · DEVELOPMENT' },
       1: { es: 'APLICACIÓN WEB', en: 'WEB APPLICATION' },
       2: { es: 'E-COMMERCE · FULL STACK', en: 'E-COMMERCE · FULL STACK' },
-      3: { es: 'PRODUCTIVIDAD · WEB', en: 'PRODUCTIVITY · WEB' },
       4: { es: 'API · BACKEND', en: 'API · BACKEND' },
       5: { es: 'PORTFOLIO · ANGULAR', en: 'PORTFOLIO · ANGULAR' },
     };
