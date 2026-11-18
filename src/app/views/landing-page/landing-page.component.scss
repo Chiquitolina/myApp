@@ -1,6 +1,7 @@
 :host { display: block; width: 100%; min-width: 0; min-height: 100%; }
 .landing-screen {
   --surface: #212529;
+  --shell-background: rgba(33, 37, 41, .91);
   --card: #2d3238;
   --cover: #414951;
   --text: #f5f6f7;
@@ -14,11 +15,13 @@
   min-width: 0;
   min-height: 100dvh;
   padding: clamp(12px, 2.3vw, 28px);
-  background: var(--page);
+  background: transparent;
   color: var(--text);
 }
 .landing-screen.theme-light {
+  background: transparent;
   --surface: #fcfcfc;
+  --shell-background: rgba(252, 252, 252, .93);
   --card: #eff1f3;
   --cover: #dce2e7;
   --text: #181f24;
@@ -34,7 +37,7 @@
   min-height: calc(100dvh - clamp(24px, 4.6vw, 56px));
   border-radius: 28px;
   border: 1px solid var(--border);
-  background: var(--surface);
+  background: var(--shell-background);
   box-shadow: 0 12px 48px #00000015;
   padding: clamp(20px, 3vw, 46px);
   display: flex;
@@ -91,3 +94,8 @@ footer { padding-top: 28px; margin-top: auto; text-align: center; color: var(--h
 
 .posts-more { display: flex; justify-content: center; margin-top: 22px; }
 .posts-more button { font-weight: 600; }
+
+
+/* VANTA.NET vive en app-root: el shell semiopaco deja ver sutilmente
+   las líneas, mientras el fondo completo ocupa también los márgenes. */
+.landing-shell { position: relative; isolation: isolate; }

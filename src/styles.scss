@@ -201,31 +201,62 @@ app-root {
   }
 }
 
-/* Navegación Inicio ↔ Portfolio: transición nativa de Angular Router + View Transitions.
-   Se anima la página y se mantiene el encabezado como elemento compartido. */
+/* V11: las páginas tienen su propia capa de transición.
+   Si se anima root, el fondo VANTA aislado puede dejar de acompañar el fade.
+   Nombramos la VISTA, mientras VANTA continúa fijo detrás del RouterOutlet. */
+app-root > app-landing-page,
+app-root > app-portfolio-page {
+  position: relative;
+  z-index: 1;
+  view-transition-name: ag-route-page;
+}
+
 @keyframes ag-route-out {
-  to { opacity: 0; transform: translateY(-10px) scale(.992); filter: blur(2px); }
+  to { opacity: 0; transform: translateY(-5px); }
 }
 @keyframes ag-route-in {
-  from { opacity: 0; transform: translateY(16px) scale(.985); filter: blur(3px); }
-  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+  from { opacity: 0; transform: translateY(7px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-::view-transition-old(root) {
-  animation: ag-route-out 280ms ease-in both;
-}
+
+/* root no debe tener su propio fade: es el fondo compartido de ambas rutas. */
+::view-transition-old(root),
 ::view-transition-new(root) {
-  animation: ag-route-in 470ms cubic-bezier(.22, 1, .36, 1) both;
+  animation: none !important;
 }
+
+/* El fade corresponde al contenido que Angular intercambia, no al canvas. */
+::view-transition-old(ag-route-page) {
+  animation: ag-route-out 160ms ease-in both;
+}
+::view-transition-new(ag-route-page) {
+  animation: ag-route-in 260ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+/* Navegación superior compartida: transición corta y suave. */
 ::view-transition-old(ag-navigation),
 ::view-transition-new(ag-navigation) {
-  animation-duration: 350ms;
+  animation-duration: 210ms;
   animation-timing-function: ease-in-out;
 }
-/* Sin View Transitions, la navegación se realiza sin animación adicional. */
+
+/* La instancia WebGL mantiene su identidad y no se anima ni se recrea. */
+::view-transition-old(ag-vanta-backdrop),
+::view-transition-new(ag-vanta-backdrop),
+::view-transition-group(ag-vanta-backdrop) {
+  animation: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  ::view-transition-old(root), ::view-transition-new(root),
-  ::view-transition-old(ag-navigation), ::view-transition-new(ag-navigation) {
+  ::view-transition-old(ag-route-page),
+  ::view-transition-new(ag-route-page),
+  ::view-transition-old(ag-navigation),
+  ::view-transition-new(ag-navigation) {
     animation-duration: .01ms !important;
   }
   app-landing-page, app-portfolio-page { animation: none !important; }
 }
+
+/* Respaldo cuando WebGL/CDN no estén disponibles. */
+body.theme-dark { background-color: #090909; }
+body.theme-light { background-color: #e9ebed; }

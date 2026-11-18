@@ -6,6 +6,7 @@
 
 .portfolio-screen {
   --surface: #212529;
+  --shell-background: rgba(33, 37, 41, .86);
   --card: #2b3137;
   --icon-surface: #3a444e;
   --page: #090909;
@@ -21,12 +22,14 @@
   min-width: 0;
   min-height: 100dvh;
   padding: clamp(12px, 2.3vw, 28px);
-  background: var(--page);
+  background: transparent;
   color: var(--text);
 }
 
 .portfolio-screen.theme-light {
+  background: transparent;
   --surface: #fcfcfc;
+  --shell-background: rgba(252, 252, 252, .9);
   --card: #eef1f4;
   --icon-surface: #dae0e7;
   --page: #e9ebed;
@@ -51,7 +54,7 @@
   border-radius: 28px;
   background:
     radial-gradient(ellipse 65% 50% at 85% 24%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 80%),
-    var(--surface);
+    var(--shell-background);
   box-shadow: 0 12px 48px #00000015;
 }
 
@@ -200,3 +203,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
   .pill, .project-card, .card-arrow { transition: none; }
   .pill:hover, .project-card:hover, .project-card:hover .card-arrow { transform: none; }
 }
+
+
+/* Fondo global compartido bajo todo el viewport. */
+.portfolio-shell { position: relative; isolation: isolate; }

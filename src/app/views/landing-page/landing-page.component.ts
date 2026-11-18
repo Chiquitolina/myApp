@@ -46,7 +46,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
       navHome: 'Inicio', navPortfolio: 'Portfolio',
       eyebrow: 'TECNOLOGÍA · CIENCIA',
       title: 'Ideas, proyectos y aprendizajes.',
-      lead: 'Desarrollo, investigación y aprendizaje en el mundo del software.',
+      lead: 'Desarrollo, investigación y aprendizaje en software.',
       explore: 'Explorar portfolio', profile: 'Mi LinkedIn', downloadCV: 'Descargar CV', posts: 'Últimas publicaciones',
       demo: 'Ejemplo de tarjeta', disclaimer: 'Boceto inicial: reemplazá estas tarjetas por tus publicaciones reales de LinkedIn.',
       published: 'Publicado', rights: 'Todos los derechos reservados',
