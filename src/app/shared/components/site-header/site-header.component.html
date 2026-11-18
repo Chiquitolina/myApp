@@ -1,85 +1,92 @@
 
-<header class="site-header d-flex justify-content-between
-               align-items-start align-items-md-center">
+<header class="site-header border-none">
 
-  <!-- IZQUIERDA: LOGO (50% EN MOBILE) -->
-  <a routerLink="/"
-     class="brand col-6 col-md-auto d-flex align-items-center border-none"
-     aria-label="AG / Portfolio — Inicio">
-
+  <!-- LOGO Y TÍTULO -->
+  <a
+    routerLink="/"
+    class="brand"
+    aria-label="Ir al Inicio"
+  >
     <img
       src="/favicon.ico"
-      alt="AG"
+      alt=""
       class="brand-logo"
       width="37"
       height="32"
     />
 
-    <span>/ Portfolio</span>
+    <span class="brand-title">
+      / Software Developer - Researcher
+    </span>
   </a>
 
-  <!-- DERECHA: NAVEGACIÓN Y PREFERENCIAS -->
-  <div class="header-actions col-6 col-md-auto
-              d-flex flex-column-reverse flex-md-row
-              align-items-end align-items-md-center
-              gap-2 gap-md-3">
+  <!-- NAVEGACIÓN Y PREFERENCIAS -->
+  <div class="header-actions">
 
-    <!-- NAVEGACIÓN: DEBAJO EN MOBILE -->
-    <nav class="main-nav d-flex align-items-center
-                justify-content-end gap-2 gap-md-3"
+    <!-- NAVEGACIÓN -->
+    <nav class="main-nav"
          aria-label="Navegación principal">
 
-      <a routerLink="/"
-         routerLinkActive="active"
-         [routerLinkActiveOptions]="{ exact: true }"
-         ariaCurrentWhenActive="page">
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ariaCurrentWhenActive="page">
         {{ labels.home }}
       </a>
 
-      <a routerLink="/portfolio"
-         routerLinkActive="active"
-         ariaCurrentWhenActive="page">
+      <a
+        routerLink="/portfolio"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page">
         {{ labels.portfolio }}
       </a>
+
     </nav>
 
-    <!-- PREFERENCIAS: ARRIBA EN MOBILE -->
-    <div class="header-preferences d-flex
-                flex-row align-items-center
-                justify-content-end gap-2">
+    <!-- TEMA E IDIOMA -->
+    <div class="header-preferences">
 
-      <button class="theme-button"
-              type="button"
-              (click)="toggleTheme()"
-              [attr.aria-label]="labels.theme"
-              [attr.title]="labels.theme">
+      <button
+        class="theme-button"
+        type="button"
+        (click)="toggleTheme()"
+        [attr.aria-label]="labels.theme"
+        [attr.title]="labels.theme">
 
         @if (dark) {
           <span aria-hidden="true">☾</span>
         } @else {
           <span aria-hidden="true">☼</span>
         }
+
       </button>
 
-      <div class="language-control"
-           role="group"
-           [attr.aria-label]="labels.language">
+      <div
+        class="language-control"
+        role="group"
+        [attr.aria-label]="labels.language">
 
-        <button type="button"
-                [class.selected]="language === 'en'"
-                [attr.aria-pressed]="language === 'en'"
-                (click)="changeLanguage('en')">
+        <button
+          type="button"
+          [class.selected]="language === 'en'"
+          [attr.aria-pressed]="language === 'en'"
+          (click)="changeLanguage('en')">
           EN
         </button>
 
-        <button type="button"
-                [class.selected]="language === 'es'"
-                [attr.aria-pressed]="language === 'es'"
-                (click)="changeLanguage('es')">
+        <button
+          type="button"
+          [class.selected]="language === 'es'"
+          [attr.aria-pressed]="language === 'es'"
+          (click)="changeLanguage('es')">
           ES
         </button>
+
       </div>
 
     </div>
+
   </div>
+
 </header>

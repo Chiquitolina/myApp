@@ -13,7 +13,7 @@ export class ProjectsService {
     // Orden visual de proyectos. IDs estables para conservar las URLs existentes.
     {
       id: 6,
-      name: 'Crypto Quant System',
+      name: 'Quant System',
       description: 'Sistema en Python para investigar estrategias cuantitativas sobre el mercado de criptomonedas, con datos centralizados, análisis multi-timeframe y herramientas de evaluación de estrategias.',
       descriptionEn: 'Python-based system for researching quantitative cryptocurrency market strategies, featuring centralized market data, multi-timeframe analysis, and strategy evaluation tools.',
       link: '', // Sin enlace público confirmado.
@@ -27,7 +27,7 @@ export class ProjectsService {
     },
     {
       id: 7,
-      name: 'POS Angular',
+      name: 'Web POS',
       description: 'Sistema de punto de venta desarrollado con Angular para gestionar productos, presentaciones por unidad y caja, pedidos y análisis de ventas.',
       descriptionEn: 'Point-of-sale system built with Angular to manage products, single-unit and box packaging, orders, and sales analysis.',
       link: '', // Sin demo pública confirmada.
