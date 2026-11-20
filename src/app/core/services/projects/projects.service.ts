@@ -14,29 +14,145 @@ export class ProjectsService {
     {
       id: 6,
       name: 'Quant System',
-      description: 'Sistema en Python para investigar estrategias cuantitativas sobre el mercado de criptomonedas, con datos centralizados, análisis multi-timeframe y herramientas de evaluación de estrategias.',
-      descriptionEn: 'Python-based system for researching quantitative cryptocurrency market strategies, featuring centralized market data, multi-timeframe analysis, and strategy evaluation tools.',
-      link: '', // Sin enlace público confirmado.
-      image: '', // Las fichas individuales no utilizan imágenes.
+      description: 'Plataforma modular de investigación cuantitativa desarrollada en Python para estudiar el mercado de futuros de criptomonedas. Integra datos de Binance, procesamiento multi-timeframe, análisis estructural, evaluación de estrategias y simulación de operaciones con datos históricos y entornos de prueba.',
+      descriptionEn: 'Modular quantitative research platform built in Python to study cryptocurrency futures markets. It combines Binance market data, multi-timeframe processing, market structure analysis, strategy evaluation, and trade simulation using historical data and test environments.',
+      additionalDescription: {
+        es: 'El proyecto comenzó como un motor de señales y ejecución en Binance Futures Testnet y evolucionó hacia un ecosistema de servicios y laboratorios de investigación. Reúne datos de mercado compartidos, experimentos reproducibles, replays cronológicos y dashboards interactivos para validar hipótesis antes de utilizarlas en una estrategia operativa.',
+        en: 'The project started as a signal and execution engine on Binance Futures Testnet and evolved into an ecosystem of research services and analytical labs. It brings together shared market data, reproducible experiments, chronological replays, and interactive dashboards to test hypotheses before considering them for an operational strategy.',
+      },
+      link: '', // Sin demo pública verificada: el sistema opera en infraestructura privada.
+      image: '',
       showDetails: false,
       technologies: [
-        { name: 'python', image: '' },
-        { name: 'redis', image: '' },
-        { name: 'websockets', image: '' },
+        { name: 'Python', image: '' },
+        { name: 'pandas', image: '' },
+        { name: 'Binance Futures API', image: '' },
+        { name: 'WebSockets', image: '' },
+        { name: 'Redis', image: '' },
+        { name: 'Streamlit', image: '' },
+        { name: 'Linux / Ubuntu', image: '' },
+        { name: 'PM2', image: '' },
+        { name: 'Git', image: '' },
       ],
+      clientSide: {
+        projectName: 'Quant System',
+        side: 'Motores de análisis e investigación',
+        description: 'Arquitectura Python por capas para contexto de mercado, generación de señales, planificación de entradas, gestión de riesgo y ejecución de prueba. Incluye motores de compresión y breakout, Horizontal Levels Lab (HLL), Reaction & Swing Lab, análisis Multi-Swing y herramientas Discovery/Universal Runner. Los backtests y replays permiten examinar eventos históricos, comparar escenarios y evaluar estrategias sin asumir rentabilidad.',
+        linkRepository: '',
+        technologies: [],
+      },
+      serverSide: {
+        projectName: 'Quant System',
+        side: 'Datos e infraestructura',
+        description: 'Ingesta de velas OHLCV mediante API y WebSockets de Binance, con procesamiento histórico y en streaming para múltiples símbolos y temporalidades. Servicios Python desplegados en un VPS Linux y administrados con PM2; Redis se utiliza para datos y snapshots compartidos. Journals, resultados de experimentos y auditorías conservan trazabilidad de eventos, gaps, estados PRE/POST y consistencia temporal.',
+        linkRepository: '',
+        technologies: [],
+      },
+      architectureCopyEn: {
+        client: {
+          title: 'Analysis and research engines',
+          description: 'Layered Python architecture for market context, signal generation, entry planning, risk management, and test execution. Research modules include compression and breakout detection, Horizontal Levels Lab (HLL), Reaction & Swing Lab, Multi-Swing analysis, and Discovery/Universal Runner tools. Backtests and replays help inspect historical events, compare scenarios, and evaluate strategies without assuming profitability.',
+        },
+        server: {
+          title: 'Data and infrastructure',
+          description: 'OHLCV candle ingestion through Binance APIs and WebSockets, with historical and streaming processing across multiple symbols and timeframes. Python services run on a Linux VPS and are managed through PM2, while Redis provides shared data and snapshots. Journals, experiment outputs, and audits track events, data gaps, PRE/POST states, and temporal consistency.',
+        },
+      },
+      additionalFeatures: {
+        es: [
+          'Procesamiento de un universo de hasta 290 símbolos y seis temporalidades, desde velas de 1 minuto.',
+          'Contexto multi-timeframe de tendencia, momentum, volumen y comportamiento del mercado.',
+          'Detección y seguimiento por estados de compresiones, breakouts y posibles entradas.',
+          'Horizontal Levels Lab: niveles, zonas, defensas, rupturas, recuperaciones y continuidad estructural.',
+          'Reaction & Swing Lab: retests, swings confirmados, Multi-Swing y estudio de confluencias.',
+          'Discovery y Universal Runner para explorar eventos y comparar comportamientos entre símbolos.',
+          'Backtesting, replays, simulación de portfolio y pruebas de ejecución en Binance Futures Testnet.',
+          'Dashboards Streamlit con gráficos, filtros, overlays e inspectores de casos históricos.',
+          'Journaling y auditorías de integridad, gaps, causalidad y separación PRE/POST.',
+        ],
+        en: [
+          'Processing across a universe of up to 290 symbols and six timeframes, including 1-minute candles.',
+          'Multi-timeframe market context covering trend, momentum, volume, and broader market behavior.',
+          'State-based detection and tracking of compressions, breakouts, and potential entries.',
+          'Horizontal Levels Lab: levels, zones, defenses, breaks, recoveries, and structural continuity.',
+          'Reaction & Swing Lab: retests, confirmed swings, Multi-Swing, and confluence research.',
+          'Discovery and Universal Runner to explore events and compare behavior across symbols.',
+          'Backtesting, chronological replays, portfolio simulation, and Binance Futures Testnet execution tests.',
+          'Streamlit dashboards with charts, filters, overlays, and historical case inspectors.',
+          'Journaling and audits for data integrity, gaps, causality, and PRE/POST separation.',
+        ],
+      },
+      testingCopy: {
+        es: 'Se ejecutaron pruebas automatizadas, auditorías y replays históricos. Una evaluación de investigación procesó 290 símbolos durante 14 días e identificó 14.905 eventos REACTION. Estos resultados corresponden a experimentación y simulación; no representan rentabilidad validada en operaciones reales.',
+        en: 'The project has undergone automated tests, audits, and historical replays. One research run processed 290 symbols over 14 days and identified 14,905 REACTION events. These findings come from experimentation and simulation; they do not establish validated profitability in live trading.',
+      },
     },
     {
       id: 7,
       name: 'Web POS',
-      description: 'Sistema de punto de venta desarrollado con Angular para gestionar productos, presentaciones por unidad y caja, pedidos y análisis de ventas.',
-      descriptionEn: 'Point-of-sale system built with Angular to manage products, single-unit and box packaging, orders, and sales analysis.',
-      link: '', // Sin demo pública confirmada.
+      description: 'Sistema de punto de venta desarrollado en Angular para gestionar la operación diaria de una heladería. Integra un catálogo organizado por categorías y familias, con venta por unidad y cajas de distintos tamaños, registro de ventas, apertura y cierre de caja e impresión de comprobantes internos.',
+      descriptionEn: 'Angular point-of-sale system for the daily operations of an ice cream shop. It features a catalog organized by categories and product families, sales by individual unit or different box sizes, sales registration, cash register opening and closing, and internal receipt printing.',
+      additionalDescription: {
+        es: 'Incluye reportes semanales y gráficos para identificar los productos, días y horarios con mayor cantidad de ventas. La información se almacena localmente en IndexedDB, con herramientas de respaldo y soporte para funcionamiento sin conexión.',
+        en: 'It includes weekly reports and charts highlighting best-selling products, days, and hours. Data is stored locally in IndexedDB, with backup tools and offline support.',
+      },
+      link: '', // Agregar únicamente cuando exista una demo pública verificada.
       image: '',
       showDetails: false,
       technologies: [
-        { name: 'angular', image: '' },
-        { name: 'typescript', image: '' },
+        { name: 'Angular', image: '' },
+        { name: 'TypeScript', image: '' },
+        { name: 'Angular Signals', image: '' },
+        { name: 'IndexedDB', image: '' },
+        { name: 'Angular Service Worker', image: '' },
+        { name: 'HTML5', image: '' },
+        { name: 'CSS3', image: '' },
+        { name: 'SVG', image: '' },
       ],
+      clientSide: {
+        projectName: 'Web POS',
+        side: 'Interfaz y lógica de negocio',
+        description: 'Aplicación construida con componentes standalone de Angular, Signals y formularios para administrar ventas, productos y operaciones de caja. La lógica de negocio está separada de la interfaz e incluye validaciones, cálculos monetarios en centavos, anulaciones con historial y conversiones entre unidades, cajas y packs. Los gráficos se desarrollaron con HTML y SVG, y los comprobantes de venta, movimientos y cierre están preparados para papel térmico de 78 mm.',
+        linkRepository: '',
+        technologies: [],
+      },
+      serverSide: {
+        projectName: 'Web POS',
+        side: 'Persistencia local',
+        description: 'Almacenamiento en IndexedDB mediante registros individuales, índices y transacciones. Las ventas conservan los nombres y precios registrados al momento de la operación, manteniendo su historial aunque cambie el catálogo. Incluye migraciones de la base, actualización entre pestañas, respaldos JSON e importación y exportación del catálogo. Angular Service Worker permite almacenar los recursos de la aplicación para su uso sin conexión tras la primera carga.',
+        linkRepository: '',
+        technologies: [],
+      },
+      architectureCopyEn: {
+        client: {
+          title: 'Interface and business logic',
+          description: 'Built with Angular standalone components, Signals and forms for managing sales, products, and cash register operations. Business logic is separated from the UI, including validations, monetary calculations in cents, traceable voids, and conversions between units, boxes, and packs. Charts use HTML and SVG; sales, cash movements, and closing receipts support 78 mm thermal paper.',
+        },
+        server: {
+          title: 'Local persistence',
+          description: 'IndexedDB storage with individual records, indexes, and transactions. Sales retain the names and prices recorded at the time of purchase even when the catalog changes. Includes database migrations, cross-tab updates, JSON backups, catalog import/export, and Angular Service Worker caching for offline usage after the first load.',
+        },
+      },
+      additionalFeatures: {
+        es: [
+          'Historial de ventas con filtros y anulaciones que ajustan los acumulados.',
+          'Registro de cambios en productos y precios.',
+          'Exportación de cierres semanales en CSV.',
+          'Cálculo de consumo teórico de helado y equivalencias de cajas y packs.',
+          'Métricas con filtros y mapa de actividad por día y hora.',
+        ],
+        en: [
+          'Sales history with filters and voids that adjust totals.',
+          'Product and price change history.',
+          'Weekly cash closing exports in CSV.',
+          'Theoretical ice cream consumption and box/pack conversions.',
+          'Filterable metrics and activity heatmap by day and hour.',
+        ],
+      },
+      testingCopy: {
+        es: 'El proyecto incluye 204 pruebas automatizadas sobre cálculos de caja, anulaciones, catálogo, migraciones, persistencia y reportes.',
+        en: 'The project includes 204 automated tests covering cash calculations, voids, catalog, migrations, persistence, and reports.',
+      },
     },
     {
       id: 1,

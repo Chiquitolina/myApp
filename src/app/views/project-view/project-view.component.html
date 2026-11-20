@@ -8,7 +8,10 @@
       <header class="project-intro">
         <span class="project-eyebrow">{{ category }}</span>
         <h1>{{ current.name }}</h1>
-        <p class="project-description">{{ current.description | translate }}</p>
+        <p class="project-description">{{ current.additionalDescription ? introDescription : (current.description | translate) }}</p>
+        @if (extraDescription; as paragraph) {
+          <p class="project-description project-description-extra">{{ paragraph }}</p>
+        }
 
         @if (highlights.length > 0) {
           <section class="highlights" [attr.aria-label]="t.highlights">
@@ -55,8 +58,8 @@
             @for (part of architectureParts; track part.key) {
               <article class="architecture-card">
                 <span class="architecture-kind">{{ part.label }}</span>
-                <h3>{{ part.value.side }}</h3>
-                <p>{{ part.value.description | translate }}</p>
+                <h3>{{ architectureTitle(part) }}</h3>
+                <p>{{ architectureDescription(part) | translate }}</p>
                 @if (safeUrl(part.value.linkRepository); as url) {
                   <a [href]="url" target="_blank" rel="noopener noreferrer">
                     {{ t.openCode }} <span aria-hidden="true">↗</span>
@@ -65,6 +68,23 @@
               </article>
             }
           </div>
+        </section>
+      }
+      @if (additionalFeatures.length > 0) {
+        <section class="additional-features-section" [attr.aria-label]="t.additionalFeatures">
+          <h2>{{ t.additionalFeatures }}</h2>
+          <ul class="additional-features-list">
+            @for (feature of additionalFeatures; track feature) {
+              <li>{{ feature }}</li>
+            }
+          </ul>
+        </section>
+      }
+
+      @if (testingCopy; as testing) {
+        <section class="testing-section" [attr.aria-label]="t.tests">
+          <h2>{{ t.tests }}</h2>
+          <p>{{ testing }}</p>
         </section>
       }
     </article>

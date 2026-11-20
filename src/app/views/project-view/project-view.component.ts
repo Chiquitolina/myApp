@@ -34,7 +34,8 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
       openCode: 'Ver repositorio',
       noPublicDemo: 'Este proyecto no tiene una demo pública enlazada.',
       type: 'Tipo', projectType: 'Proyecto de software',
-      parts: 'Componentes', client: 'Cliente', server: 'Servidor',
+      parts: 'Componentes', client: 'Cliente', server: 'Datos',
+      additionalFeatures: 'Funcionalidades adicionales', tests: 'Pruebas',
     },
     en: {
       back: 'Back to Portfolio', projects: 'Projects',
@@ -44,18 +45,27 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
       openCode: 'View repository',
       noPublicDemo: 'There is no public demo linked for this project.',
       type: 'Type', projectType: 'Software project',
-      parts: 'Components', client: 'Client', server: 'Server',
+      parts: 'Components', client: 'Client', server: 'Data',
+      additionalFeatures: 'Additional features', tests: 'Tests',
     },
   };
 
   private readonly featureCopy: Record<number, { es: string[]; en: string[] }> = {
     6: {
-      es: ['Datos de mercado compartidos entre estrategias', 'Estudio de estructuras y señales multi-timeframe', 'Evaluación experimental de estrategias'],
-      en: ['Shared market data across strategies', 'Multi-timeframe structure and signal research', 'Experimental strategy evaluation'],
+      es: [
+        'Procesamiento histórico y en streaming de hasta 290 símbolos en seis temporalidades.',
+        'Laboratorios HLL, Reaction & Swing y Multi-Swing para estudiar estructuras del mercado.',
+        'Backtests, replays y auditorías causales con dashboards de inspección.',
+      ],
+      en: [
+        'Historical and streaming processing of up to 290 symbols across six timeframes.',
+        'HLL, Reaction & Swing, and Multi-Swing labs for market structure research.',
+        'Backtests, chronological replays, and causality audits with inspection dashboards.',
+      ],
     },
     7: {
-      es: ['Catálogo por unidad y por caja', 'Gestión de productos y pedidos', 'Análisis de ventas por día, hora y producto'],
-      en: ['Single-unit and box-based catalog', 'Product and order management', 'Sales analysis by day, hour, and product'],
+      es: ['Catálogo por familias, unidades y múltiples presentaciones de caja.', 'Gestión de ventas, movimientos de efectivo y cierres con tickets térmicos.', 'Reportes semanales y métricas por producto, categoría, día y hora.'],
+      en: ['Catalog by product family, individual units, and multiple box sizes.', 'Sales, cash movement and register closing with thermal receipts.', 'Weekly reports and metrics by product, category, day and hour.'],
     },
     0: {
       es: ['Bitácora de desarrollo y aprendizaje', 'Aplicación web', 'Componentes de cliente y servidor'],
@@ -81,6 +91,38 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
 
   get t() { return this.copy[this.language]; }
 
+  get introDescription(): string {
+    if (!this.project) return '';
+    return this.language === 'en' && this.project.descriptionEn
+      ? this.project.descriptionEn : this.project.description;
+  }
+
+  get extraDescription(): string | null {
+    return this.project?.additionalDescription?.[this.language] ?? null;
+  }
+
+  get additionalFeatures(): string[] {
+    return this.project?.additionalFeatures?.[this.language] ?? [];
+  }
+
+  get testingCopy(): string | null {
+    return this.project?.testingCopy?.[this.language] ?? null;
+  }
+
+  architectureTitle(part: { key: string; value: sideProject }): string {
+    if (this.language === 'en' && this.project?.architectureCopyEn) {
+      return this.project.architectureCopyEn[part.key as 'client' | 'server'].title;
+    }
+    return part.value.side;
+  }
+
+  architectureDescription(part: { key: string; value: sideProject }): string {
+    if (this.language === 'en' && this.project?.architectureCopyEn) {
+      return this.project.architectureCopyEn[part.key as 'client' | 'server'].description;
+    }
+    return part.value.description;
+  }
+
   get highlights(): string[] {
     return this.project ? (this.featureCopy[this.project.id]?.[this.language] ?? []) : [];
   }
@@ -88,7 +130,7 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
   get category(): string {
     if (!this.project) return this.t.projectType;
     const categories: Record<number, Localized> = {
-      6: { es: 'TRADING CUANTITATIVO · PYTHON', en: 'QUANTITATIVE TRADING · PYTHON' },
+      6: { es: 'INVESTIGACIÓN CUANTITATIVA · PYTHON', en: 'QUANTITATIVE RESEARCH · PYTHON' },
       7: { es: 'PUNTO DE VENTA · ANGULAR', en: 'POINT OF SALE · ANGULAR' },
       0: { es: 'BLOG · DESARROLLO', en: 'BLOG · DEVELOPMENT' },
       1: { es: 'APLICACIÓN WEB', en: 'WEB APPLICATION' },
@@ -121,8 +163,13 @@ export class ProjectViewComponent implements OnInit, OnDestroy {
   get architectureParts(): { key: string; label: string; value: sideProject }[] {
     if (!this.project) return [];
     const result: { key: string; label: string; value: sideProject }[] = [];
-    if (this.project.clientSide) result.push({ key: 'client', label: this.t.client, value: this.project.clientSide });
-    if (this.project.serverSide) result.push({ key: 'server', label: this.t.server, value: this.project.serverSide });
+    // Quant System no es una aplicación cliente/servidor tradicional:
+    // sus dos bloques documentan los motores y la infraestructura de datos.
+    const isQuant = this.project.id === 6;
+    const engineLabel = isQuant ? (this.language === 'en' ? 'Engines' : 'Motores') : this.t.client;
+    const dataLabel = isQuant ? (this.language === 'en' ? 'Data & infrastructure' : 'Datos e infraestructura') : this.t.server;
+    if (this.project.clientSide) result.push({ key: 'client', label: engineLabel, value: this.project.clientSide });
+    if (this.project.serverSide) result.push({ key: 'server', label: dataLabel, value: this.project.serverSide });
     return result;
   }
 
